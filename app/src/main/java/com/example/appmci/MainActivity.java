@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
-
+        //test
         //1006
         DBHelper helper = new DBHelper(this, "MCICare.db", null, 1);
         ContentValues values = new ContentValues();
