@@ -16,7 +16,8 @@
     <string name="f5_btn_logOut">登出</string>
     <string name="f1_text_previousHR">當前心率：</string>
     <string name="f1_text_goalStep">距離今日目標還有：</string>
-
-
+    <string name="f1_text_hrUnit">bpm</string>
+    <string name="f1_text_expect">理想值：</string>
+    <string name="f1_text_dash"> ~ </string>
 
 </resources>
