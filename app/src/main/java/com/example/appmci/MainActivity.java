@@ -5,13 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.facebook.stetho.Stetho;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
+    //1009 SQLiteTest Anna
+    private TextView result = null;
+    //1009 SQLiteTest Anna
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
 
-        //1006
+        //1006 SQLite初步資料建立test Anna
         DBHelper helper = new DBHelper(this, "MCICare.db", null, 1);
         ContentValues values = new ContentValues();
         values.put("p_id", 100);
@@ -46,8 +53,12 @@ public class MainActivity extends AppCompatActivity {
         values2.put("p_weight", 81.2);
         helper.getWritableDatabase().insert("Patient_Body_Data", null, values2);
 
-        //1006
+        //1006 SQLite初步資料建立test Anna
         Stetho.initializeWithDefaults(this);
+
+
+
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -79,4 +90,6 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
+
+
 }

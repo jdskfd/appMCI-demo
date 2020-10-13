@@ -5,10 +5,42 @@
     android:background="#69bdd2">
 
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="362dp"
+        android:layout_height="262dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="387dp"
+        android:background="@color/lightGrey" />
+
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/f1_text_previousHR"
+        android:layout_width="173dp"
         android:layout_height="wrap_content"
-        android:text="Home Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:layout_above="@+id/f1_text_goalStep"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="184dp"
+        android:text="@string/f1_text_previousHR"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/f1_text_goalStep"
+        android:layout_width="203dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="87dp"
+        android:text="@string/f1_text_goalStep"
+        android:textSize="20sp" />
+
+
 </RelativeLayout>
