@@ -8,6 +8,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.facebook.stetho.Stetho;
@@ -15,9 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    //1009 SQLiteTest Anna
-    private TextView result = null;
-    //1009 SQLiteTest Anna
+    TextView theTextView;
 
 
     @Override
@@ -30,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
 
         //1006 SQLite初步資料建立test Anna
-        //test
-        //1006
+
         DBHelper helper = new DBHelper(this, "MCICare.db", null, 1);
         ContentValues values = new ContentValues();
         values.put("p_id", 100);
@@ -57,9 +55,6 @@ public class MainActivity extends AppCompatActivity {
 
         //1006 SQLite初步資料建立test Anna
         Stetho.initializeWithDefaults(this);
-
-
-
 
     }
 
