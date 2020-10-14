@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:id="@+id/displayHint"
-        android:background="@color/lightGrey"
+        android:background="@color/displayBoardBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
@@ -36,7 +36,7 @@
         android:layout_above="@id/displayRun">
         <TextView
             android:id="@+id/f1_text_previousHR"
-            android:text="@string/f1_text_previousHR"
+            android:text="@string/home_text_previousHR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"></TextView>
             <TextView
                 android:id="@+id/f1_text_hrUnit"
-                android:text="@string/f1_text_hrUnit"
+                android:text="@string/home_text_hrUnit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></TextView></androidx.appcompat.widget.LinearLayoutCompat>
         <LinearLayout
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:text="@string/f1_text_expect"
+                android:text="@string/home_text_expect"
                 android:textSize="30sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></TextView>
@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></TextView>
             <TextView
-                android:text="@string/f1_text_dash"
+                android:text="@string/home_text_dash"
                 android:textSize="30sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></TextView>
@@ -88,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="@string/f1_text_goalStep"
+            android:text="@string/home_text_goalStep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
         <TextView

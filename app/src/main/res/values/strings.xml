@@ -6,18 +6,15 @@
     <string name="menu_book">照護百科</string>
     <string name="menu_settings">設定</string>
 
-    <string name="f5_btn1">編輯個人資料</string>
-    <string name="f5_btn2">測量走路速度</string>
-    <string name="f5_btn3">編輯身高體重</string>
-    <string name="f5_btn4">系統使用教學</string>
-    <string name="f5_btn5">語言選擇</string>
-    <string name="f5_btn6">聯絡醫護人員</string>
-    <string name="f5_btn7">問題回報</string>
-    <string name="f5_btn_logOut">登出</string>
-    <string name="f1_text_previousHR">當前心率：</string>
-    <string name="f1_text_goalStep">距離今日目標還有：</string>
-    <string name="f1_text_hrUnit">bpm</string>
-    <string name="f1_text_expect">理想值：</string>
-    <string name="f1_text_dash"> ~ </string>
+    <string name="setting_profile">編輯個人資料</string>
+    <string name="setting_heightWeight">編輯身高體重</string>
+    <string name="setting_tutorial">系統使用教學</string>
+    <string name="setting_language">語言選擇</string>
+
+    <string name="home_text_previousHR">當前心率：</string>
+    <string name="home_text_goalStep">距離今日目標還有：</string>
+    <string name="home_text_hrUnit">bpm</string>
+    <string name="home_text_expect">理想值：</string>
+    <string name="home_text_dash"> ~ </string>
 
 </resources>
