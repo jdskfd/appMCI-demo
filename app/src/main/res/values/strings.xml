@@ -17,11 +17,11 @@
     <string name="menu_settings">設定</string>
 
     <!-- setting -->
-    <string name="setting_profile">編輯個人資料</string>
-    <string name="setting_heightWeight">編輯身高體重</string>
-    <string name="setting_tutorial">系統使用教學</string>
-    <string name="setting_language">語言選擇</string>
-    <string name="setting_bluetooth">藍芽設定</string>
+<!--    <string name="setting_profile">編輯個人資料</string>-->
+<!--    <string name="setting_heightWeight">編輯身高體重</string>-->
+<!--    <string name="setting_tutorial">系統使用教學</string>-->
+<!--    <string name="setting_language">語言選擇</string>-->
+<!--    <string name="setting_bluetooth">藍芽設定</string>-->
 
     <!-- home -->
     <string name="home_text_previousHR">當前心率：</string>
