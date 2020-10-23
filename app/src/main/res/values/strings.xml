@@ -1,20 +1,56 @@
 <resources>
     <string name="app_name">appMCI</string>
+
+    <!-- menu:drawer -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="menu_drawer_profile">我的資料</string>
+    <string name="menu_drawer_settingHW">設定身高體重</string>
+    <string name="menu_drawer_bluetooth">藍牙連接</string>
+    <string name="menu_drawer_language">語言設定</string>
+
+    <!-- menu:bottom navigation -->
     <string name="menu_home">我的主頁</string>
     <string name="menu_health">健康狀況</string>
     <string name="menu_test">知能測驗</string>
     <string name="menu_book">照護百科</string>
     <string name="menu_settings">設定</string>
 
+    <!-- setting -->
     <string name="setting_profile">編輯個人資料</string>
     <string name="setting_heightWeight">編輯身高體重</string>
     <string name="setting_tutorial">系統使用教學</string>
     <string name="setting_language">語言選擇</string>
+    <string name="setting_bluetooth">藍芽設定</string>
 
+    <!-- home -->
     <string name="home_text_previousHR">當前心率：</string>
     <string name="home_text_goalStep">距離今日目標還有：</string>
     <string name="home_text_hrUnit">bpm</string>
     <string name="home_text_expect">理想值：</string>
     <string name="home_text_dash"> ~ </string>
+
+    <!-- bluetooth -->
+    <string name="ble_not_supported">BLE is not supported</string>
+    <string name="label_data">Data:</string>
+    <string name="label_device_address">Device address:</string>
+    <string name="label_state">State:</string>
+    <string name="no_data">No data</string>
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="title_devices">BLE Device Scan</string>
+    <string name="error_bluetooth_not_supported">Bluetooth not supported.</string>
+
+    <!-- bluetooth device -->
+    <string name="unknown_device">Unknown device</string>
+    <string name="unknown_characteristic">Unknown characteristic</string>
+    <string name="unknown_service">Unknown service</string>
+
+    <!-- Menu items -->
+    <string name="menu_connect">Connect</string>
+    <string name="menu_disconnect">Disconnect</string>
+    <string name="menu_scan">Scan</string>
+    <string name="menu_stop">Stop</string>
+
 
 </resources>
