@@ -15,11 +15,12 @@ import androidx.fragment.app.Fragment;
 
 public class FragmentHome extends Fragment {
 
+    //counter
     Handler mHandler;
     int count =0;
-
-
     TextView theTextView;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,7 +40,8 @@ public class FragmentHome extends Fragment {
             if (count < 10) {
                 theTextView.setText(Integer.toString(count+1));
                 count++;
-                mHandler.postDelayed(runnable, 1000);
+                mHandler.postDelayed(runnable, 1000); //（毫秒）
+                //每次延後一秒做、
             }
         }
     };
@@ -50,6 +52,8 @@ public class FragmentHome extends Fragment {
         super.onPause();
         if (mHandler != null) {
             mHandler.removeCallbacks(runnable);
+            //frag 結束時，請handler把runnable關掉
+
         }
     }
 }

@@ -8,10 +8,15 @@
         android:id="@+id/displayHint"
         android:background="@color/displayBoardBackground"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="250dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="25dp"
+        >
         <ImageView
             android:id="@+id/hintIcon"
             android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
             android:layout_width="70pt"
             android:layout_height="70pt"
             android:scaleType="fitXY"
@@ -31,55 +36,85 @@
         android:id="@+id/displayHR"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_above="@id/displayRun"
         android:layout_below="@id/displayHint"
-        android:layout_above="@id/displayRun">
-        <TextView
-            android:id="@+id/f1_text_previousHR"
-            android:text="@string/home_text_previousHR"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></TextView>
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-3dp"
+        android:orientation="vertical">
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="120dp"
             android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/f1_text_previousHR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:text="@string/home_text_previousHR"
+                android:textSize="25sp"></TextView>
+
             <TextView
                 android:id="@+id/f1_hr"
-                android:text="100"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></TextView>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="35dp"></TextView>
+
             <TextView
                 android:id="@+id/f1_text_hrUnit"
-                android:text="@string/home_text_hrUnit"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></TextView></androidx.appcompat.widget.LinearLayoutCompat>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:text="@string/home_text_hrUnit"
+                android:textSize="25dp"></TextView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
-                android:text="@string/home_text_expect"
-                android:textSize="30sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></TextView>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/home_text_expect"
+                android:textSize="25sp"></TextView>
+
             <TextView
                 android:id="@+id/expectHR_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="80"
-                android:textSize="30sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></TextView>
+                android:textSize="25sp"></TextView>
+
             <TextView
-                android:text="@string/home_text_dash"
-                android:textSize="30sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></TextView>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/home_text_dash"
+                android:textSize="25sp"></TextView>
+
             <TextView
                 android:id="@+id/expectHR_max"
-                android:text="100"
-                android:textSize="30sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></TextView>
-        </LinearLayout></androidx.appcompat.widget.LinearLayoutCompat>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="100"
+                android:textSize="25sp"></TextView>
+        </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/displayRun"
@@ -90,7 +125,9 @@
         <TextView
             android:text="@string/home_text_goalStep"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginLeft="25dp"></TextView>
         <TextView
 
             android:layout_width="wrap_content"
