@@ -13,6 +13,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,9 +27,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    //1009 SQLiteTest Anna
-    private TextView result = null;
-    //1009 SQLiteTest Anna
+    TextView theTextView;
 
     private String tag;
     private DrawerLayout drawer;
@@ -57,8 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
 
         //1006 SQLite初步資料建立test Anna
-        //test
-        //1006
+
         DBHelper helper = new DBHelper(this, "MCICare.db", null, 1);
         ContentValues values = new ContentValues();
         values.put("p_id", 100);
@@ -84,9 +82,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //1006 SQLite初步資料建立test Anna
         Stetho.initializeWithDefaults(this);
-
-
-
 
     }
     //switch drawer fragment

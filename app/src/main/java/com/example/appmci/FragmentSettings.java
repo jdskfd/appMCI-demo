@@ -20,13 +20,14 @@ public class FragmentSettings extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_settings, container, false);
+        View view =  inflater.inflate(R.layout.fragment_settings, container, false);
 
-        b1 = v.findViewById(R.id.f5_btn1);
-        b2 = v.findViewById(R.id.f5_btn2);
-        b3 = v.findViewById(R.id.f5_btn3);
-        b4 = v.findViewById(R.id.f5_btn4);
-        b5 = v.findViewById(R.id.f5_btn5);
+
+        b1 = view.findViewById(R.id.f5_btn1);
+        b2 = view.findViewById(R.id.f5_btn2);
+        b3 = view.findViewById(R.id.f5_btn3);
+        b4 = view.findViewById(R.id.f5_btn4);
+        b5 = view.findViewById(R.id.f5_btn5);
 
         b5.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +44,6 @@ public class FragmentSettings extends Fragment {
         });
 
 
-        return v;
+        return view;
     }
 }
