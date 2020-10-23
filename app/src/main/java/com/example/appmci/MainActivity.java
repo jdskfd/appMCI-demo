@@ -11,18 +11,26 @@ import androidx.fragment.app.Fragment;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.appmci.drawerFragments.BluetoothFragment;
+import com.example.appmci.drawerFragments.LanguageFragment;
+import com.example.appmci.drawerFragments.ProfileFragment;
+import com.example.appmci.drawerFragments.SetHWFragment;
 import com.facebook.stetho.Stetho;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     //1009 SQLiteTest Anna
     private TextView result = null;
     //1009 SQLiteTest Anna
 
+    private String tag;
     private DrawerLayout drawer;
 
     @Override
@@ -35,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -78,6 +89,38 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    //switch drawer fragment
+    @Override
+
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+
+            case R.id.drawer_profile:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new ProfileFragment()).commit();
+                break;
+            case R.id.drawer_settingHW:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new SetHWFragment()).commit();
+                break;
+            case R.id.drawer_bluetooth:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new BluetoothFragment()).commit();
+                break;
+            case R.id.drawer_language:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new LanguageFragment()).commit();
+                break;
+
+        }
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
     @Override
     public void onBackPressed(){
         if(drawer.isDrawerOpen(GravityCompat.START)){
