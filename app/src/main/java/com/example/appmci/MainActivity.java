@@ -144,9 +144,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         case R.id.nav_book:
                             selectedFragment = new FragmentBook();
                             break;
-                        case R.id.nav_settings:
-                            selectedFragment = new FragmentSettings();
-                            break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                     return true;
