@@ -120,30 +120,46 @@
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/displayRun"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50px"
-        >
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
             android:text="今日活動量:"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/step"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22sp"
-            android:layout_marginLeft="25dp"/>
-        <TextView
             android:layout_marginLeft="15pt"
-            android:textSize="22sp"
-            android:text="3670/7000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:text="3670"
+            android:textSize="22sp" />
         <TextView
-            android:layout_marginLeft="5pt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22sp"
-            android:text="步"/>
+            android:layout_marginLeft="15pt"
+            android:text="/"
+            android:textSize="22sp" />
+        <TextView
+            android:id="@+id/stepTarget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15pt"
+            android:text="7000"
+            android:textSize="22sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5pt"
+            android:text="步"
+            android:textSize="22sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </RelativeLayout>
