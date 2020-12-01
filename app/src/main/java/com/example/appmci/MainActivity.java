@@ -10,13 +10,17 @@ import androidx.fragment.app.Fragment;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
+import com.example.appmci.database.ConnectionClass;
 import com.example.appmci.drawerFragments.BluetoothFragment;
 import com.example.appmci.drawerFragments.LanguageFragment;
 import com.example.appmci.drawerFragments.ProfileFragment;
@@ -25,11 +29,15 @@ import com.facebook.stetho.Stetho;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView theTextView;
 
-    private String tag;
+    private static final String TAG = "MainActivity";
     private DrawerLayout drawer;
 
     @Override
@@ -55,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
 
+        //
+//        CheckConnection();
         //1006 SQLite初步資料建立test Anna
 
         DBHelper helper = new DBHelper(this, "MCICare.db", null, 1);
@@ -84,6 +94,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Stetho.initializeWithDefaults(this);
 
     }
+
+
+//    public void CheckConnection(){
+//        try {
+//            if(ConnectionClass.con == null){
+//                new ConnectionClass().setConnection();
+//            }
+//            if(ConnectionClass.con != null){
+//                Statement stmt = ConnectionClass.con.createStatement();
+//                String sql="select * from Patient_steps";
+//                ResultSet resultSet = stmt.executeQuery(sql);
+//                Log.e("ASK","----------------------------");
+//                while (resultSet.next()){
+//                    Log.e("ASK",resultSet.getString("steps"));
+//                }
+//                Log.e("ASK","----------------------------");
+//
+//                Toast.makeText(getApplicationContext(), "Query executed successfully", Toast.LENGTH_LONG).show();
+//            }else {
+//                Toast.makeText(getApplicationContext(), "Connection to server failed ", Toast.LENGTH_LONG).show();
+//            }
+//        } catch (Exception e) {
+//            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+//            Log.e("ASK", e.getMessage());
+//        }
+//    }
+
+
+
+
+
     //switch drawer fragment
     @Override
 

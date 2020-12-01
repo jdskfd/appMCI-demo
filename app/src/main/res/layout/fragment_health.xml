@@ -2,16 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DBECFB">
+    android:background="#cae4fc">
 
 
-    <ListView
-        android:id="@+id/rssiID"
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart_line"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="77dp" />
+        android:layout_height="match_parent"/>
+
+
 </RelativeLayout>
