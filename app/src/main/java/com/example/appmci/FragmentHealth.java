@@ -428,6 +428,7 @@ public class FragmentHealth extends Fragment {
 
 
         //bar temp1
+
         value_temp.add(new BarEntry(1, 22));
         value_temp.add(new BarEntry(2, 11));
         value_temp.add(new BarEntry(3, 7));
@@ -449,8 +450,8 @@ public class FragmentHealth extends Fragment {
 
 
         //pie
-        pie_value.add(new PieEntry(2, 1));
-        pie_value.add(new PieEntry(20, 20));
+        pie_value.add(new PieEntry(105, 1));
+        pie_value.add(new PieEntry(3521, 20));
 
 //        lineChart = view.findViewById(R.id.line_chart);
         barChartTemp = view.findViewById(R.id.bar_chart_temp);
