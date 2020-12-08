@@ -108,6 +108,11 @@ public class FragmentHealth extends Fragment {
     PieChart sleep_report;
 
 
+    LineChart lineChart;
+    BarChart barChartTemp;
+    BarChart barChart;
+    PieChart pieChart;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -465,6 +470,7 @@ public class FragmentHealth extends Fragment {
         draw_hr_lineChart(values);
         draw_step_barChart(step_day);
         draw_sleep_pieChart(sleep_ratio);
+
 
 
         btnDay = view.findViewById(R.id.day_btn);
