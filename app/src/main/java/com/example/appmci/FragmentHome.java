@@ -40,7 +40,7 @@ public class FragmentHome extends Fragment {
                 try {
                     //建立連線
                     Thread.sleep(5000);//在子執行緒有一段耗時操作,比如請求網路
-                    CheckConnection();
+//                    CheckConnection();
 
 
                     handler.post(new Runnable() {
