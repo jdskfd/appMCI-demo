@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EAF2EF">
+    android:background="#EAF2EF"
+    android:id="@+id/fragment_health">
 
 
 <!--    <com.github.mikephil.charting.charts.LineChart-->
@@ -11,17 +12,43 @@
 <!--        android:layout_height="180dp"-->
 <!--        android:layout_alignParentTop="true"-->
 <!--        />-->
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/bar_chart_temp"
+    <LinearLayout
+        android:id="@+id/btn_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/day_btn"
+            android:text="日"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/week_btn"
+            android:text="週"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/month_btn"
+            android:text="月"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/analysis_report_btn"
+            android:text="智慧分析"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/line_chart"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-
+        android:layout_below="@id/btn_row"
         />
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/bar_chart"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:layout_below="@+id/bar_chart_temp"
+            android:layout_below="@+id/line_chart"
         />
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pie_chart"
