@@ -14,6 +14,7 @@ public class MyDBHelper extends SQLiteOpenHelper{
 
     public MyDBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
         m_ctx = context;
 
     }
@@ -94,7 +95,7 @@ public class MyDBHelper extends SQLiteOpenHelper{
         boolean result = false;
 
         Cursor cInfo = db.rawQuery(
-                "select INFO_ID from TESTING", null);
+                "select ab_hr from AbnormalHrP01", null);
         if(cInfo != null)
         {
             if(cInfo.moveToFirst())
