@@ -1,5 +1,6 @@
 package com.example.appmci;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -521,6 +522,16 @@ public class FragmentHealth extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onPause(){
+        FragmentManager fragmentManager = getFragmentManager();
+        int count = getFragmentManager().getBackStackEntryCount();
+        for (int i = 0 ; i < count ; i++){
+            fragmentManager.popBackStack();
+        }
+        super.onPause();
     }
 
     private void draw_hr_lineChart(final ArrayList<Entry> db_data) {

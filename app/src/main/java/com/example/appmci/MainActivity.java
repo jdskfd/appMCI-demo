@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.nfc.Tag;
 import android.os.Bundle;
@@ -45,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent serverServiceIntent = new Intent(this, GetServerDataService.class);
+        startService(serverServiceIntent);
+
         //drawer
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -64,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
 
         //
-//        CheckConnection();
         //1006 SQLite初步資料建立test Anna
 
         DBHelper helper = new DBHelper(this, "MCICare.db", null, 1);
@@ -94,33 +97,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Stetho.initializeWithDefaults(this);
 
     }
-
-
-//    public void CheckConnection(){
-//        try {
-//            if(ConnectionClass.con == null){
-//                new ConnectionClass().setConnection();
-//            }
-//            if(ConnectionClass.con != null){
-//                Statement stmt = ConnectionClass.con.createStatement();
-//                String sql="select * from Patient_steps";
-//                ResultSet resultSet = stmt.executeQuery(sql);
-//                Log.e("ASK","----------------------------");
-//                while (resultSet.next()){
-//                    Log.e("ASK",resultSet.getString("steps"));
-//                }
-//                Log.e("ASK","----------------------------");
-//
-//                Toast.makeText(getApplicationContext(), "Query executed successfully", Toast.LENGTH_LONG).show();
-//            }else {
-//                Toast.makeText(getApplicationContext(), "Connection to server failed ", Toast.LENGTH_LONG).show();
-//            }
-//        } catch (Exception e) {
-//            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-//            Log.e("ASK", e.getMessage());
-//        }
-//    }
-
 
 
 
