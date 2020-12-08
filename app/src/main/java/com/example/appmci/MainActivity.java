@@ -58,42 +58,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
 
-        //
-//        CheckConnection();
-
-
-
-        // db insert old
-        /*
-        DBHelper helper = new DBHelper(this, "MCICare.db", null, 1);
-        ContentValues values = new ContentValues();
-        values.put("p_id", 100);
-        values.put("p_name", "Anna");
-        values.put("p_birthday", 19990308);
-        values.put("p_gender", 2);
-        values.put("p_bloodtype", 3);
-        values.put("p_cdr", 1.5);
-        values.put("p_address", "文化一路");
-        values.put("p_tel", "0975267463");
-        values.put("p_id_number","A123456789");
-        values.put("p_family", "hello");
-        values.put("p_family_tel", "0964783645");
-        values.put("p_note", "天才");
-        helper.getWritableDatabase().insert("Patient_Data", null, values);
-
-        ContentValues values2 = new ContentValues();
-        values2.put("p_id",100);
-        values2.put("p_height",181.3);
-        values2.put("p_weight", 81.2);
-        helper.getWritableDatabase().insert("Patient_Body_Data", null, values2);
-
-
-        Stetho.initializeWithDefaults(this);
-
-        //db insert old
-
-         */
-
         //test insert values conn db
         MyDBHelper myDBhelper = new MyDBHelper(this, "mciSQLite.db", null, 1);
 
@@ -371,32 +335,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-//   -----連線後台------
-
-//    public void CheckConnection(){
-//        try {
-//            if(ConnectionClass.con == null){
-//                new ConnectionClass().setConnection();
-//            }
-//            if(ConnectionClass.con != null){
-//                Statement stmt = ConnectionClass.con.createStatement();
-//                String sql="select * from Patient_steps";
-//                ResultSet resultSet = stmt.executeQuery(sql);
-//                Log.e("ASK","----------------------------");
-//                while (resultSet.next()){
-//                    Log.e("ASK",resultSet.getString("steps"));
-//                }
-//                Log.e("ASK","----------------------------");
-//
-//                Toast.makeText(getApplicationContext(), "Query executed successfully", Toast.LENGTH_LONG).show();
-//            }else {
-//                Toast.makeText(getApplicationContext(), "Connection to server failed ", Toast.LENGTH_LONG).show();
-//            }
-//        } catch (Exception e) {
-//            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-//            Log.e("ASK", e.getMessage());
-//        }
-//    }
 
 
 
