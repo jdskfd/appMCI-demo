@@ -26,7 +26,8 @@ public class FragmentHome extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        theTextView = (TextView)view.findViewById(R.id.f1_hr);
+        //暫時拿掉auto increase
+//        theTextView = (TextView)view.findViewById(R.id.f1_hr);
 
         mHandler = new Handler();
         mHandler.post(runnable);
