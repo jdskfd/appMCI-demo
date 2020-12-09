@@ -2,13 +2,29 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#cae4fc">
-
-
+    android:background="#e3fdf0">
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/bookTitle"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Test Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:text="今日照護事項"
+        android:textSize="15pt"
+        android:background="#a0f3d2"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/bookTitle">
+        <ListView
+            android:id="@+id/test_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10px"
+            android:paddingBottom="10px"
+            />
+    </LinearLayout>
 </RelativeLayout>

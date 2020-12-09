@@ -2,13 +2,78 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#cae4fc">
+    android:background="#EAF2EF"
+    android:id="@+id/fragment_health">
 
 
-    <TextView
+<!--    <com.github.mikephil.charting.charts.LineChart-->
+<!--        android:id="@+id/line_chart"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="180dp"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        />-->
+    <LinearLayout
+        android:id="@+id/btn_row"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Health Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/day_btn"
+            android:text="日"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/week_btn"
+            android:text="週"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/month_btn"
+            android:text="月"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/analysis_report_btn"
+            android:text="智慧分析"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/line_chart"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_below="@id/btn_row"
+        />
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/bar_chart"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_below="@+id/line_chart"
+        />
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pie_chart"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/bar_chart"
+        />
+        <TextView
+            android:id="@+id/step_target_done"
+            android:text="本週活動量:8416 \n上週活動量:7274 \n進步15.7%"
+            android:textSize="22sp"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/bar_chart"/>
+    <TextView
+        android:id="@+id/sleep_status"
+        android:text="本週夜間步數:421 \n上週夜間離床量:214 \n退步96.7%"
+        android:textSize="22sp"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/step_target_done"/>
+
 </RelativeLayout>
+
+

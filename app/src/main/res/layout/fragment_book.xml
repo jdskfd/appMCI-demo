@@ -3,12 +3,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#cae4fc">
-
-
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/bookTitle"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Book Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:text="照護百科"
+        android:textSize="15pt"
+        android:background="#a0cef3"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/bookTitle">
+        <ListView
+            android:id="@+id/book_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+
+
 </RelativeLayout>

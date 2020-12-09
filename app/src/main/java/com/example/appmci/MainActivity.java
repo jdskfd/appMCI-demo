@@ -9,18 +9,19 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
+import android.nfc.Tag;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.appmci.drawerFragments.BluetoothFragment;
 import com.example.appmci.drawerFragments.LanguageFragment;
 import com.example.appmci.drawerFragments.ProfileFragment;
 import com.example.appmci.drawerFragments.SetHWFragment;
+
+
 import com.facebook.stetho.Stetho;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -29,13 +30,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     TextView theTextView;
 
-    private String tag;
+    private static final String TAG = "MainActivity";
     private DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent serverServiceIntent = new Intent(this, GetServerDataService.class);
+        startService(serverServiceIntent);
+
+        //new service db
+        MyDBHelper myDBHelper = new MyDBHelper(getApplicationContext(),"mciSQLite.db",null,1);
+        startService(new Intent(this, MyServiceDB.class));
 
         //drawer
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -55,35 +63,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
 
-        //1006 SQLite初步資料建立test Anna
 
-        DBHelper helper = new DBHelper(this, "MCICare.db", null, 1);
-        ContentValues values = new ContentValues();
-        values.put("p_id", 100);
-        values.put("p_name", "Anna");
-        values.put("p_birthday", 19990308);
-        values.put("p_gender", 2);
-        values.put("p_bloodtype", 3);
-        values.put("p_cdr", 1.5);
-        values.put("p_address", "文化一路");
-        values.put("p_tel", "0975267463");
-        values.put("p_id_number","A123456789");
-        values.put("p_family", "hello");
-        values.put("p_family_tel", "0964783645");
-        values.put("p_note", "天才");
-        helper.getWritableDatabase().insert("Patient_Data", null, values);
-        //
-        //DBHelper helper2 = new DBHelper(this, "MCICare.db", null, 1);
-        ContentValues values2 = new ContentValues();
-        values2.put("p_id",100);
-        values2.put("p_height",181.3);
-        values2.put("p_weight", 81.2);
-        helper.getWritableDatabase().insert("Patient_Body_Data", null, values2);
-
-        //1006 SQLite初步資料建立test Anna
         Stetho.initializeWithDefaults(this);
 
     }
+
+
+
+
     //switch drawer fragment
     @Override
 
