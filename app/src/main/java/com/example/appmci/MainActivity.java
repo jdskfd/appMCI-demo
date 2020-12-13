@@ -13,11 +13,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.example.appmci.bluetooth.BLEScan;
 import com.example.appmci.drawerFragments.BluetoothFragment;
 import com.example.appmci.drawerFragments.LanguageFragment;
 import com.example.appmci.drawerFragments.ProfileFragment;
 import com.example.appmci.drawerFragments.SetHWFragment;
-
+import com.example.appmci.bluetooth.BLEScan;
 
 import com.facebook.stetho.Stetho;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //take sql server data
         Intent serverServiceIntent = new Intent(this, GetServerDataService.class);
         startService(serverServiceIntent);
 

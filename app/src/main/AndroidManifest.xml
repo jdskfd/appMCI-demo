@@ -4,20 +4,18 @@
     android:versionCode="1"
     android:versionName="1.0">
 
-    <uses-feature
-        android:name="android.hardware.bluetooth_le"
-        android:required="true" />
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-feature
         android:name="android.hardware.bluetooth_le"
         android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -26,13 +24,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
+            android:name=".bluetooth.BLEScan"
+            android:enabled="true"
+            android:exported="true" />
+        <service
             android:name=".MyServiceDB"
             android:enabled="true"
             android:exported="true"
             android:stopWithTask="false"></service>
         <service
             android:name=".GetServerDataService"
-            android:exported="false" />
+            android:exported="false"></service>
 
         <activity
             android:name=".MainActivity"
@@ -42,7 +44,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- <activity android:name=".DeviceControlActivity" /> -->
+        </activity>
 
     </application>
 
