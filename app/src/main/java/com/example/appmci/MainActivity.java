@@ -8,10 +8,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -40,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Intent serverServiceIntent = new Intent(this, GetServerDataService.class);
         startService(serverServiceIntent);
+
+        Intent bleIntent = new Intent(this, BLEScan.class);
+        startService(bleIntent);
 
         //new service db
         MyDBHelper myDBHelper = new MyDBHelper(getApplicationContext(),"mciSQLite.db",null,1);
