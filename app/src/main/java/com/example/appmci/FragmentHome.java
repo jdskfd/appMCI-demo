@@ -40,7 +40,6 @@ public class FragmentHome extends Fragment {
                 try {
                     //建立連線
                     Thread.sleep(5000);//在子執行緒有一段耗時操作,比如請求網路
-//                    CheckConnection();
 
 
                     handler.post(new Runnable() {
@@ -71,33 +70,6 @@ public class FragmentHome extends Fragment {
         }).start();
 
         return view;
-    }
-
-
-
-    public void CheckConnection(){
-        try {
-            if(ConnectionClass.con == null){
-                new ConnectionClass().setConnection();
-            }
-            if(ConnectionClass.con != null){
-                Statement stmt = ConnectionClass.con.createStatement();
-                String sql="select * from Patient_steps";
-                ResultSet resultSet = stmt.executeQuery(sql);
-                Log.e("ASK","----------------------------");
-                while (resultSet.next()){
-                    Log.e("ASK",resultSet.getString("steps"));
-                }
-                Log.e("ASK","----------------------------");
-
-//                Toast.makeText(getContext(), "Query executed successfully", Toast.LENGTH_LONG).show();
-            }else {
-//                Toast.makeText(getContext(), "Connection to server failed ", Toast.LENGTH_LONG).show();
-            }
-        } catch (Exception e) {
-//            Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-            Log.e("ASK", e.getMessage());
-        }
     }
 
 

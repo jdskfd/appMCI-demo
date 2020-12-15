@@ -4,19 +4,16 @@
     android:versionCode="1"
     android:versionName="1.0">
 
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-feature
         android:name="android.hardware.bluetooth_le"
         android:required="true" />
-
-
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
-
 
     <application
         android:allowBackup="true"
@@ -25,14 +22,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
+        <service
+            android:name=".bluetooth.BLEScan"
+            android:enabled="true"
+            android:exported="true" />
         <service
             android:name=".MyServiceDB"
             android:enabled="true"
             android:exported="true"
-            android:stopWithTask="false">
-        </service>
+            android:stopWithTask="false"></service>
         <service
             android:name=".GetServerDataService"
             android:exported="false"></service>
@@ -42,14 +40,11 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--        <activity android:name=".DeviceControlActivity" />-->
 
-        <service
-            android:name=".bluetoothlegatt.BluetoothLeService"
-            android:enabled="true" />
     </application>
 
 </manifest>

@@ -108,11 +108,6 @@ public class FragmentHealth extends Fragment {
     PieChart sleep_report;
 
 
-    LineChart lineChart;
-    BarChart barChartTemp;
-    BarChart barChart;
-    PieChart pieChart;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
