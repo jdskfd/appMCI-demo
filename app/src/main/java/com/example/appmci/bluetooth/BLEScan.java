@@ -19,6 +19,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
+import android.os.Binder;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
@@ -30,6 +31,7 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.appmci.FragmentHome;
 import com.example.appmci.R;
 
 /**Both RX and RSSI (Received Signal Strength Indication) are indications of the power level being received
@@ -46,6 +48,8 @@ public class BLEScan extends Service{
     private BluetoothGatt btGatt;
     private BluetoothAdapter mBluetoothAdapter;
     private Handler mHandler;
+//    private final MyIBinder myIBinder = new MyIBinder();
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -60,30 +64,40 @@ public class BLEScan extends Service{
             writeLine("1");
 
             Toast.makeText(this, R.string.ble_not_supported, Toast.LENGTH_SHORT).show();
-            stopSelf();
+//            stopSelf();
         }else{
             if(mBluetoothAdapter!=null && mBluetoothAdapter.isEnabled()){
-                writeLine("2");
+
 
                 startBLEscan();
             }else{
-                writeLine("3");
 
-                stopSelf();
+
+//                stopSelf();
             }
+
         }
         return START_STICKY;
     }
+//    public class MyIBinder extends Binder {
+//        public Service getService() {
+//            FragmentHome.vh.sendMessage(FragmentHome.createMessage(
+//                    FragmentHome.UPDATE_VIEW,
+//                    "BindServiceWithIBinder.MyIBinder.getService()"));
+//            return FragmentHome.this;
+//        }
+//    }
 
     @Override
     public IBinder onBind(Intent intent) {
+//        FragmentHome.vh.sendMessage(FragmentHome.createMessage(FragmentHome.UPDATE_VIEW, "HI its Binder"));
         return null;
     }
 
     @Override
     public void onDestroy() {
         writeLine("Automate service destroyed...");
-        stopBLEscan();
+//        stopBLEscan();
         super.onDestroy();
 
         if(btGatt!=null){
@@ -92,32 +106,32 @@ public class BLEScan extends Service{
             btGatt = null;
         }
     }
-    private void scanLeDevice(final boolean enable) {
-        if (enable) {
-            // Stops scanning after a pre-defined scan period.
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    mScanning = false;
-                    mBluetoothAdapter.stopLeScan(mLeScanCallback);
-
-                }
-            },1000000000);
-
-            mScanning = true;
-            mBluetoothAdapter.startLeScan(mLeScanCallback);
-        } else {
-            mScanning = false;
-            mBluetoothAdapter.stopLeScan(mLeScanCallback);
-        }
-
-    }
-    @Override
-    public boolean stopService(Intent name) {
-        writeLine("Automate service stop...");
-        stopSelf();
-        return super.stopService(name);
-    }
+//    private void scanLeDevice(final boolean enable) {
+//        if (enable) {
+//            // Stops scanning after a pre-defined scan period.
+//            mHandler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    mScanning = false;
+//                    mBluetoothAdapter.stopLeScan(mLeScanCallback);
+//
+//                }
+//            },1000000000);
+//
+//            mScanning = true;
+//            mBluetoothAdapter.startLeScan(mLeScanCallback);
+//        } else {
+//            mScanning = false;
+//            mBluetoothAdapter.stopLeScan(mLeScanCallback);
+//        }
+//
+//    }
+//    @Override
+//    public boolean stopService(Intent name) {
+//        writeLine("Automate service stop...");
+//        stopSelf();
+//        return super.stopService(name);
+//    }
 
     // Initializes a Bluetooth adapter.  For API level 18 and above, get a reference to
     // BluetoothAdapter through BluetoothManager.
@@ -150,9 +164,9 @@ public class BLEScan extends Service{
         mBluetoothAdapter.startLeScan(mLeScanCallback);
     }
 
-    public void stopBLEscan(){
-        mBluetoothAdapter.stopLeScan(mLeScanCallback);
-    }
+//    public void stopBLEscan(){
+//        mBluetoothAdapter.stopLeScan(mLeScanCallback);
+//    }
     public static void enableDisableBluetooth(boolean enable){
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (bluetoothAdapter != null) {
@@ -168,15 +182,16 @@ public class BLEScan extends Service{
             new BluetoothAdapter.LeScanCallback() {
                 @Override
                 public void onLeScan(final BluetoothDevice device, final int rssi, byte[] scanRecord) {
-                    Log.d(TAG + " onLeScan: ", "Name: " + device.getName() + "Address: " + device.getAddress() + "RSSI: " + rssi + "scanRecord" +scanRecord);
-                    String Test = String.valueOf(device);
-
-                    if(CheckMac(Test) == true && CheckContains(ByteArrayToIntArray(scanRecord))==true) {
-                        Log.d("DEBUG", "device : " + Test);
+                  //  Log.d(TAG + " onLeScan: ", "Name: " + device.getName() + "Address: " + device.getAddress() + "RSSI: " + rssi + "scanRecord" +scanRecord);
+                    String devicename = String.valueOf(device);
+                    if(CheckMac(devicename)==true
+                    ) {
+                        Log.d("DEBUG", "device : " + devicename);
                         Log.d("DEBUG", "RSSI : " + rssi);
                         //Log.d("DEBUG", "device : " + device);
                         printScanRecord(scanRecord);
                     }
+
                     if (device != null && device.getName() != null) {
                         if (rssi > -90 && rssi < -1) {
                             writeLine("Automate service BLE device in range: " + device.getName() + " " + rssi);
@@ -192,7 +207,7 @@ public class BLEScan extends Service{
                                     }
                                 });
                             }
-                            stopBLEscan();
+//                            stopBLEscan();
                         } else {
                             Log.v("Device Scan Activity", device.getAddress() + " " + "BT device is still too far - not connecting");
                         }
@@ -299,7 +314,7 @@ public class BLEScan extends Service{
     }
     public boolean CheckMac(String test)
     {
-        String compare = "D4:21:90:01:76:9F";
+        String compare = "CF:C0:BF:F9:9C:90";
         if(test.equals(compare))
         {
             return true ;

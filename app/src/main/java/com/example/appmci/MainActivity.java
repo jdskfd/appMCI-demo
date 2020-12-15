@@ -37,14 +37,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         //take sql server data
         Intent serverServiceIntent = new Intent(this, GetServerDataService.class);
-        startService(serverServiceIntent);
+//        startService(serverServiceIntent);
 
         Intent bleIntent = new Intent(this, BLEScan.class);
         startService(bleIntent);
 
         //new service db
         MyDBHelper myDBHelper = new MyDBHelper(getApplicationContext(),"mciSQLite.db",null,1);
-        startService(new Intent(this, MyServiceDB.class));
+//        startService(new Intent(this, MyServiceDB.class));
+
 
         //drawer
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -60,9 +61,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         // BottomNavigation
+        FragmentHome FragmentHome = new FragmentHome();
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, FragmentHome).commit();
 
 
         Stetho.initializeWithDefaults(this);
