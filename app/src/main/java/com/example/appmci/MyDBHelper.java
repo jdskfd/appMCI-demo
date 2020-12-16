@@ -54,6 +54,9 @@ public class MyDBHelper extends SQLiteOpenHelper{
             "day_steps_month_avg INTEGER, " +
             "night_steps_month_avg INTEGER )";
 
+    private String insert_dayHR = "INSERT INTO DataHR VALUES (value1,"+"value2,value3,...valueN);"+
+            "";
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(createTable_DataHR);
