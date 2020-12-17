@@ -1,10 +1,22 @@
 package com.example.appmci;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import androidx.annotation.Nullable;
+
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Map;
+
+import javax.security.auth.login.LoginException;
 
 public class MyDBHelper extends SQLiteOpenHelper{
     private final Context m_ctx;
@@ -18,6 +30,10 @@ public class MyDBHelper extends SQLiteOpenHelper{
         m_ctx = context;
 
     }
+
+    private String createTable_InstantData = "CREATE TABLE InstantData ( _id INTEGER PRIMARY KEY , " +
+            "type STRING, " +
+            "value INTEGER )";
 
     private String createTable_DataHR = "CREATE TABLE DataHR ( _id INTEGER PRIMARY KEY , " +
             "p_id INTEGER , " +
@@ -54,8 +70,12 @@ public class MyDBHelper extends SQLiteOpenHelper{
             "day_steps_month_avg INTEGER, " +
             "night_steps_month_avg INTEGER )";
 
+    String value_DataHR = "INSERT INTO DataHR (p_id,date,time,hr) values " +
+            "('P01','2020-11-01','00:10:12', 71)";
+
     @Override
     public void onCreate(SQLiteDatabase db) {
+        db.execSQL(createTable_InstantData);
         db.execSQL(createTable_DataHR);
         db.execSQL(createTable_DataSteps);
         db.execSQL(createTable_AbnormalHrP01);
@@ -64,12 +84,223 @@ public class MyDBHelper extends SQLiteOpenHelper{
         db.execSQL(createTable_SleepWeekP01);
         db.execSQL(createTable_SleepMonthP01);
 
+        //insert fake data in table - DataHR
+
+//        db.execSQL(value_DataHR);
+//
+//        value_DataHR = "INSERT INTO tcustomer (cname,ctel) values " +
+//                "('Joe','0953789f123')";
+//
+//        db.execSQL(value_DataHR);
+//
+//        value_DataHR = "INSERT INTO tcustomer (cname,ctel) values " +
+//                "('Mary','0953333444')";
+//
+//        db.execSQL(value_DataHR);
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    //insert data
+    public boolean insertData_DataHR (String p_id ,String date ,String time ,Integer hr)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("p_id",p_id);
+        contentValues.put("date",date);
+        contentValues.put("time",time);
+        contentValues.put("hr",hr);
+        long result=db.insert("DataHR",null,contentValues);
+        if(result==-1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean insertData_AbnormalHrP01 (String date, Integer ab_hr)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+
+        contentValues.put("date",date);
+        contentValues.put("ab_hr",ab_hr);
+        long result=db.insert("AbnormalHrP01",null,contentValues);
+        if(result==-1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean insertData_StepsTotalP01 (String date, Integer steps_total)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+
+        contentValues.put("date",date);
+        contentValues.put("steps_total",steps_total);
+        long result=db.insert("StepsTotalP01",null,contentValues);
+        if(result==-1)
+            return false;
+        else
+            return true;
+    }
+//    public void removeHR(String remove_data) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        db.delete("DataHR", "p_id" + "=" + remove_data, null);
+//        db.close();
+//    }
+
+
+    //home frag. instant data hr
+    public int instant_hr(int instant_hr_value){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery(" SELECT value FROM " + "InstantData" + " WHERE type='hr'", null);
+        c.moveToFirst();
+        instant_hr_value = c.getInt(3);
+        Log.e(TAG, "instant_hr_value: "+ instant_hr_value );
+        return instant_hr_value;
+    }
+
+    //home frag. instant data steps
+    public int instant_steps(int instant_steps_value){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery(" SELECT value FROM " + "InstantData" + " WHERE type='steps'", null);
+        c.moveToFirst();
+        instant_steps_value = c.getInt(3);
+        Log.e(TAG, "instant_steps_value: "+ instant_steps_value );
+        return instant_steps_value;
+    }
+
+    //home frag. instant data posture
+    public int instant_posture(int instant_posture_value){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery(" SELECT value FROM " + "InstantData" + " WHERE type='posture'", null);
+        c.moveToFirst();
+        instant_posture_value = c.getInt(3);
+        Log.e(TAG, "instant_posture_value: "+ instant_posture_value );
+        return instant_posture_value;
+    }
+
+    //get table's total data number
+    public int getNum() {
+        Cursor c = getWritableDatabase().rawQuery(
+                "select * from "+"StepsTotalP01", null);
+        int num = c.getCount();
+        return num;
+    }
+
+    //aryList hr_day (line)
+    public ArrayList aryList_hr_day() {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery(" SELECT * FROM " + "DataHR", null);
+        ArrayList<Entry> aryList_data_hr_day = new ArrayList<>();
+        int x =0;
+        int y =0;
+        c.moveToFirst();
+        do {
+            x = c.getInt(0);
+            y = c.getInt(4);
+            aryList_data_hr_day.add(new Entry(x, y));
+        } while (c.moveToNext());
+
+        Log.e(TAG, "aryList_hr_day: "+ aryList_data_hr_day );
+        return aryList_data_hr_day;
+    }
+
+    //aryList steps_day (bar)
+    public ArrayList aryList_steps_day() {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery(" SELECT * FROM " + "DataSteps", null);
+        ArrayList<BarEntry> aryList_data_stepsDay = new ArrayList<>();
+        int x =0;
+        int y =0;
+        c.moveToFirst();
+        do {
+            x = c.getInt(0);
+            y = c.getInt(4);
+            aryList_data_stepsDay.add(new BarEntry(x, y));
+        } while (c.moveToNext());
+
+        Log.e(TAG, "aryList_steps_day: "+ aryList_data_stepsDay );
+        return aryList_data_stepsDay;
+    }
+
+    //aryList hr_week (line)
+    public ArrayList aryList_hr_week() {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery(" SELECT * FROM " + "AbnormalHrP01" + " WHERE"+" date BETWEEN"+" '2020-11-01'"+" AND"+" '2020-11-07'", null);
+        ArrayList<Entry> aryList_data_hr_week = new ArrayList<>();
+        int x =0;
+        int y =0;
+        c.moveToFirst();
+        do {
+            x = c.getInt(0);
+            y = c.getInt(2);
+            aryList_data_hr_week.add(new Entry(x, y));
+        } while (c.moveToNext());
+
+        Log.e(TAG, "aryList_hr_week: "+ aryList_data_hr_week );
+        return aryList_data_hr_week;
+    }
+
+    //aryList steps_week (bar)
+    public ArrayList aryList_steps_week() {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery(" SELECT * FROM " + "StepsTotalP01" + " WHERE"+" date BETWEEN"+" '2020-11-01'"+" AND"+" '2020-11-07'", null);
+        ArrayList<BarEntry> aryList_data_stepsWeek = new ArrayList<>();
+        int x =0;
+        int y =0;
+        c.moveToFirst();    // 移到第 1 筆資料
+        do {        // 逐筆讀出資料
+            x = c.getInt(0);
+            y = c.getInt(2);
+            aryList_data_stepsWeek.add(new BarEntry(x, y));
+        } while (c.moveToNext());
+
+        Log.e(TAG, "aryList_steps_week: "+ aryList_data_stepsWeek );
+        return aryList_data_stepsWeek;
+    }
+
+    //aryList hr_month (line) 
+    public ArrayList aryList_hr_month() {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery(" SELECT * FROM " + "AbnormalHrP01", null);
+        ArrayList<Entry> aryList_data_hr_week = new ArrayList<>();
+        int x =0;
+        int y =0;
+        c.moveToFirst();
+        do {
+            x = c.getInt(0);
+            y = c.getInt(2);
+            aryList_data_hr_week.add(new Entry(x, y));
+        } while (c.moveToNext());
+
+        Log.e(TAG, "aryList_hr_week: "+ aryList_data_hr_week );
+        return aryList_data_hr_week;
+    }
+
+    //aryList steps_week (bar)
+    public ArrayList aryList_steps_month() {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery(" SELECT * FROM " + "StepsTotalP01", null);
+        ArrayList<BarEntry> aryList_data_stepsMonth = new ArrayList<>();
+        int x =0;
+        int y =0;
+        c.moveToFirst();
+        do {
+            x = c.getInt(0);
+            y = c.getInt(2);
+            aryList_data_stepsMonth.add(new BarEntry(x, y));
+        } while (c.moveToNext());
+
+        Log.e(TAG, "aryList_steps_month: "+ aryList_data_stepsMonth );
+        return aryList_data_stepsMonth;
+    }
+
 
     public static boolean isAnyInfoAvailable(Context ctx){
         boolean result = false;
@@ -107,4 +338,6 @@ public class MyDBHelper extends SQLiteOpenHelper{
             cInfo.close();
         return result;
     }
+
+
 }

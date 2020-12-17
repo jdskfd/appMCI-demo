@@ -21,6 +21,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.appmci.analysis.FragmentAnalysis;
+import com.example.appmci.analysis.InsertChartData;
 import com.example.appmci.database.ConnectionClass;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
@@ -97,21 +98,30 @@ import com.github.mikephil.charting.components.Legend;
 public class FragmentHealth extends Fragment {
 
 
+    private static final String TAG = "FragmentHealth";
     ArrayList<Entry> values = new ArrayList<>();
-    ArrayList<Entry> hr_week = new ArrayList<>();
+//    ArrayList<Entry> hr_week = new ArrayList<>();
     ArrayList<BarEntry> step_day = new ArrayList<>();
     ArrayList<PieEntry> sleep_ratio = new ArrayList<>();
     ArrayList<BarEntry> step_week = new ArrayList<>();
+
+//    ArrayList<Entry> testData = new ArrayList<>();
+    ArrayList<Entry> hr_day;
+    ArrayList<BarEntry> steps_day;
+    ArrayList<Entry> hr_week;
+    ArrayList<BarEntry> steps_week;
+    ArrayList<Entry> hr_month;
+    ArrayList<BarEntry> steps_month;
+
+    ArrayList<PieEntry> sleep_day = new ArrayList<>();
+    ArrayList<PieEntry> sleep_week = new ArrayList<>();
+    ArrayList<PieEntry> sleep_month = new ArrayList<>();
+
 
     LineChart hr_report;
     BarChart step_report;
     PieChart sleep_report;
 
-
-    LineChart lineChart;
-    BarChart barChartTemp;
-    BarChart barChart;
-    PieChart pieChart;
 
     @Nullable
     @Override
@@ -123,7 +133,15 @@ public class FragmentHealth extends Fragment {
         Button btnMonth;
         Button btnAnalysis;
 
+        MyDBHelper myDBHelper = new MyDBHelper(getContext(),"mciSQLite.db",null,1);
 
+//        steps_week = myDBHelper.aryList_steps_week();
+        hr_day = myDBHelper.aryList_hr_day();
+        steps_day = myDBHelper.aryList_steps_day();
+        hr_week = myDBHelper.aryList_hr_week();
+        steps_week = myDBHelper.aryList_steps_week();
+        hr_month = myDBHelper.aryList_hr_month();
+        steps_month = myDBHelper.aryList_steps_month();
 
 
         values.add(new Entry(1,	80));
@@ -442,13 +460,13 @@ public class FragmentHealth extends Fragment {
         step_day.add(new BarEntry(23, 7129));
         step_day.add(new BarEntry(24, 7206));
 
-        hr_week.add(new BarEntry(1, 22));
-        hr_week.add(new BarEntry(2, 11));
-        hr_week.add(new BarEntry(3, 7));
-        hr_week.add(new BarEntry(4, 13));
-        hr_week.add(new BarEntry(5, 8));
-        hr_week.add(new BarEntry(6, 12));
-        hr_week.add(new BarEntry(7, 9));
+//        hr_week.add(new BarEntry(1, 22));
+//        hr_week.add(new BarEntry(2, 11));
+//        hr_week.add(new BarEntry(3, 7));
+//        hr_week.add(new BarEntry(4, 13));
+//        hr_week.add(new BarEntry(5, 8));
+//        hr_week.add(new BarEntry(6, 12));
+//        hr_week.add(new BarEntry(7, 9));
 
         step_week.add(new BarEntry(1, 7206));
         step_week.add(new BarEntry(2, 8124));
@@ -458,8 +476,14 @@ public class FragmentHealth extends Fragment {
         step_week.add(new BarEntry(6, 8213));
         step_week.add(new BarEntry(7, 7129));
 
-        sleep_ratio.add(new PieEntry(2, 1));
-        sleep_ratio.add(new PieEntry(20, 20));
+        sleep_day.add(new PieEntry(105, 1));
+        sleep_day.add(new PieEntry(3521, 20));
+
+        sleep_week.add(new PieEntry(211, 1));
+        sleep_week.add(new PieEntry(3859, 20));
+
+        sleep_month.add(new PieEntry(223, 1));
+        sleep_month.add(new PieEntry(3789, 20));
 
         hr_report = view.findViewById(R.id.line_chart);
         step_report = view.findViewById(R.id.bar_chart);
@@ -467,9 +491,9 @@ public class FragmentHealth extends Fragment {
 
 //        hr_week_report = view.findViewById(R.id.line_chart);
 
-        draw_hr_lineChart(values);
-        draw_step_barChart(step_day);
-        draw_sleep_pieChart(sleep_ratio);
+        draw_hr_lineChart(hr_day);
+        draw_step_barChart(steps_day);
+        draw_sleep_pieChart(sleep_day);
 
 
 
@@ -482,19 +506,20 @@ public class FragmentHealth extends Fragment {
             @Override
             public void onClick(View view) {
 
-                draw_hr_lineChart(hr_week);
-                draw_step_barChart(step_day);
-                draw_sleep_pieChart(sleep_ratio);
+                draw_hr_lineChart(hr_day);
+                draw_step_barChart(steps_day);
+                draw_sleep_pieChart(sleep_day);
             }
         });
+
 
         btnWeek.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                draw_hr_lineChart(values);
-                draw_step_barChart(step_day);
-                draw_sleep_pieChart(sleep_ratio);
+                draw_hr_lineChart(hr_week);
+                draw_step_barChart(steps_week);
+                draw_sleep_pieChart(sleep_week);
             }
         });
 
@@ -502,9 +527,9 @@ public class FragmentHealth extends Fragment {
             @Override
             public void onClick(View view) {
 
-                draw_hr_lineChart(hr_week);
-                draw_step_barChart(step_day);
-                draw_sleep_pieChart(sleep_ratio);
+                draw_hr_lineChart(hr_month);
+                draw_step_barChart(steps_month);
+                draw_sleep_pieChart(sleep_month);
             }
         });
 
