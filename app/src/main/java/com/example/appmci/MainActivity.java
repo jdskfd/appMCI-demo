@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //take sql server data
+
         Intent serverServiceIntent = new Intent(this, GetServerDataService.class);
         startService(serverServiceIntent);
         startService(new Intent(this, BLEScan.class));
@@ -43,8 +43,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //new service db
         MyDBHelper myDBHelper = new MyDBHelper(getApplicationContext(),"mciSQLite.db",null,1);
-        String sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)" +
-                "VALUES (1, 'Paul', 32, 'California', 20000.00 )";
 
         //drawer
         Toolbar toolbar = findViewById(R.id.toolbar);

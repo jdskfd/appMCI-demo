@@ -31,23 +31,24 @@ import java.util.TimerTask;
 
 public class FragmentHome extends Fragment {
     private MyReceiver receiver;
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     public  class MyReceiver extends BroadcastReceiver {
         private final Handler handler; // Handler used to execute code on the UI thread
-        String step,hr,posture;
+        int hr,step,posture,analysisResult = 0;//1 正常 2 警告 0異常
+        String textStep,textHR;
         public MyReceiver(Handler handler) {
             this.handler = handler;
         }
         @Override
         public void onReceive(final Context context, Intent intent) {
-            step = Integer.toString((intent.getIntExtra("step",0)));
-            hr = Integer.toString(intent.getIntExtra("hr",0));
-            posture = Integer.toString(intent.getIntExtra("posture",0));
-            Log.e("DEBUG","step is "+step);
+            hr = (intent.getIntExtra("hr",0));
+            step = (intent.getIntExtra("step",0));
+            posture = intent.getIntExtra("posture",0);
+            analysisResult = 1;
+
+            textStep = Integer.toString(step);
+            textHR = Integer.toString(hr);
+
             handler.post(new Runnable() {
                 @Override
                 public void run() {
@@ -61,25 +62,22 @@ public class FragmentHome extends Fragment {
 //                            requireActivity().registerReceiver(broadCastNewMessage,serviceFilter);
                         //change picture
                         ImageView hintIcon = getActivity().findViewById(R.id.hintIcon);
-                        view_hr.setText(hr);
-                        view_step.setText(step);
-                        viewRecentStatus.setText("心率偏高");
-                        hintIcon.setImageResource(R.drawable.warning);
+                        view_hr.setText(textHR);
+                        view_step.setText(textStep);
+                        if(hr>100){
+                            hintIcon.setImageResource(R.drawable.warning);
+                            viewRecentStatus.setText(R.string.high_hr);
+                        }else if( posture == 1 ){
+                            hintIcon.setImageResource(R.drawable.lay);
+                            viewRecentStatus.setText(R.string.laydown);
+                        }else{
+                            hintIcon.setImageResource(R.drawable.normal);
+                            viewRecentStatus.setText(R.string.recentGood);
+                        }
                 }
             });
         }
     }
-//    public BroadcastReceiver broadCastNewMessage = new BroadcastReceiver() {
-//        int step,hr,posture;
-//        @Override
-//        public void onReceive(Context context, Intent intent) {
-//            step = intent.getIntExtra("step",0);
-//            hr = intent.getIntExtra("hr",0);
-//            posture = intent.getIntExtra("posture",0);
-//            Log.e("DEBUG","step is "+step);
-//        }
-//    };
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -88,50 +86,13 @@ public class FragmentHome extends Fragment {
         receiver = new MyReceiver(new Handler());
         getActivity().registerReceiver(receiver, new IntentFilter("bodyTagBroadcast"));
 
-//        handler = new Handler();
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    Thread.sleep(3000);
-//                    handler.post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            //更新ui
-//                            TextView view_hr = view.findViewById(R.id.f1_hr);
-//                            TextView view_step = view.findViewById(R.id.step);
-//                            TextView expectHR_min = view.findViewById(R.id.expectHR_min);//應該不會用到
-//                            TextView expectHR_max = view.findViewById(R.id.expectHR_max);//應該不會用到
-//                            TextView viewRecentStatus = view.findViewById(R.id.hintText);
-//                            TextView viewStepTarget = view.findViewById(R.id.stepTarget);//應該不會用到
-//                            IntentFilter serviceFilter=new IntentFilter("bodyTagBroadcast");
-//                            requireActivity().registerReceiver(broadCastNewMessage,serviceFilter);
-                            //change picture
-//                            ImageView hintIcon = view.findViewById(R.id.hintIcon);
-//                            view_hr.setText(hr);
-//                            view_step.setText(step);
-//                            viewRecentStatus.setText("心率偏高");
-//                            hintIcon.setImageResource(R.drawable.warning);
-//                        }
-//                    });
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }).start();
         return view;
     }
-
     @Override
     public void onDestroy() {
         super.onDestroy();
         getActivity().unregisterReceiver(receiver);
     }
-
-
-
-
-
 
 //    @Override
 //    public void onPause() {
