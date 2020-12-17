@@ -131,6 +131,25 @@ public class MyDBHelper extends SQLiteOpenHelper{
         else
             return true;
     }
+
+    //new
+    public boolean insertData_DataSteps (String p_id, String date, String time, Integer steps)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+
+        contentValues.put("p_id",p_id);
+        contentValues.put("date",date);
+        contentValues.put("time",time);
+        contentValues.put("steps",steps);
+
+        long result=db.insert("DataSteps",null,contentValues);
+        if(result==-1)
+            return false;
+        else
+            return true;
+    }
+
 //    public void removeHR(String remove_data) {
 //        SQLiteDatabase db = this.getWritableDatabase();
 //        db.delete("DataHR", "p_id" + "=" + remove_data, null);
