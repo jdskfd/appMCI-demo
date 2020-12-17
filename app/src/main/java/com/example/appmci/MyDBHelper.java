@@ -70,9 +70,6 @@ public class MyDBHelper extends SQLiteOpenHelper{
             "day_steps_month_avg INTEGER, " +
             "night_steps_month_avg INTEGER )";
 
-    String value_DataHR = "INSERT INTO DataHR (p_id,date,time,hr) values " +
-            "('P01','2020-11-01','00:10:12', 71)";
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(createTable_InstantData);
@@ -83,20 +80,6 @@ public class MyDBHelper extends SQLiteOpenHelper{
         db.execSQL(createTable_SleepDayP01);
         db.execSQL(createTable_SleepWeekP01);
         db.execSQL(createTable_SleepMonthP01);
-
-        //insert fake data in table - DataHR
-
-//        db.execSQL(value_DataHR);
-//
-//        value_DataHR = "INSERT INTO tcustomer (cname,ctel) values " +
-//                "('Joe','0953789f123')";
-//
-//        db.execSQL(value_DataHR);
-//
-//        value_DataHR = "INSERT INTO tcustomer (cname,ctel) values " +
-//                "('Mary','0953333444')";
-//
-//        db.execSQL(value_DataHR);
 
     }
 
@@ -265,7 +248,7 @@ public class MyDBHelper extends SQLiteOpenHelper{
         return aryList_data_stepsWeek;
     }
 
-    //aryList hr_month (line) 
+    //aryList hr_month (line)
     public ArrayList aryList_hr_month() {
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery(" SELECT * FROM " + "AbnormalHrP01", null);
@@ -338,6 +321,4 @@ public class MyDBHelper extends SQLiteOpenHelper{
             cInfo.close();
         return result;
     }
-
-
 }
