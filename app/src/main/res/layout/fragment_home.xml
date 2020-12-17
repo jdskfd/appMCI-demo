@@ -27,7 +27,7 @@
             android:layout_below="@id/hintIcon"
             android:layout_centerInParent="true"
             android:layout_marginTop="25px"
-            android:text="近期狀況良好"
+            android:text=""
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
@@ -63,15 +63,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:textSize="35dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="50dp"
                 android:text="68"/>
 
             <TextView
                 android:id="@+id/f1_text_hrUnit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="50dp"
                 android:text="@string/home_text_hrUnit"
                 android:textSize="25dp"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -85,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
                 android:text="@string/home_text_expect"
                 android:textSize="25sp"/>
@@ -94,15 +94,15 @@
                 android:id="@+id/expectHR_min"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
-                android:text="81"
+                android:text="60"
                 android:textSize="25sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
                 android:text="@string/home_text_dash"
                 android:textSize="25sp"/>
@@ -111,7 +111,7 @@
                 android:id="@+id/expectHR_max"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
                 android:text="100"
                 android:textSize="25sp"/>

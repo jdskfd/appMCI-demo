@@ -35,17 +35,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //take sql server data
-        Intent serverServiceIntent = new Intent(this, GetServerDataService.class);
-//        startService(serverServiceIntent);
 
-        Intent bleIntent = new Intent(this, BLEScan.class);
-        startService(bleIntent);
+        Intent serverServiceIntent = new Intent(this, GetServerDataService.class);
+        startService(serverServiceIntent);
+        startService(new Intent(this, BLEScan.class));
+//        startService(new Intent(this, MyServiceDB.class));
 
         //new service db
         MyDBHelper myDBHelper = new MyDBHelper(getApplicationContext(),"mciSQLite.db",null,1);
-//        startService(new Intent(this, MyServiceDB.class));
-
 
         //drawer
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -113,6 +110,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
         }
+    }
+    @Override
+    public void onDestroy(){
+        stopService(new Intent(this, MyServiceDB.class));
+        stopService(new Intent(this, BLEScan.class));
+        super.onDestroy();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
