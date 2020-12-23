@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ import com.example.appmci.drawerFragments.ProfileFragment;
 import com.example.appmci.drawerFragments.SetHWFragment;
 import com.example.appmci.bluetooth.BLEScan;
 
+import com.example.appmci.todoFunction.ItemMapping;
 import com.facebook.stetho.Stetho;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -39,12 +41,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent serverServiceIntent = new Intent(this, GetServerDataService.class);
         startService(serverServiceIntent);
         startService(new Intent(this, BLEScan.class));
-//        startService(new Intent(this, MyServiceDB.class));
+        startService(new Intent(this, MyServiceDB.class));
 
         //new service db
         MyDBHelper myDBHelper = new MyDBHelper(getApplicationContext(),"mciSQLite.db",null,1);
 
+//        myDBHelper.deleteSchedule("1%","%1800%");
 
+//        myDBHelper.insertData_ScheduleP01("1-12-0");
+//        myDBHelper.insertData_ScheduleP01("1-18-0");
+//
 //        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:01:34",14);
 //        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:02:51",15);
 //        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:03:23",15);
@@ -68,10 +74,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:21:52",7031);
 //        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:22:49",7129);
 //        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:23:31",7206);
-//
-//
-//
-//
+////
+////
+////
+////
 //        myDBHelper.insertData_StepsTotalP01("2020-11-01", 7206);
 //        myDBHelper.insertData_StepsTotalP01("2020-11-02", 8124);
 //        myDBHelper.insertData_StepsTotalP01("2020-11-03", 7914);
@@ -102,8 +108,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        myDBHelper.insertData_StepsTotalP01("2020-11-28", 6990);
 //        myDBHelper.insertData_StepsTotalP01("2020-11-29", 11506);
 //        myDBHelper.insertData_StepsTotalP01("2020-11-30", 8139);
-//
-//
+////
+////
 //        myDBHelper.insertData_AbnormalHrP01("2020-11-01", 22);
 //        myDBHelper.insertData_AbnormalHrP01("2020-11-02", 11);
 //        myDBHelper.insertData_AbnormalHrP01("2020-11-03", 7);
@@ -134,8 +140,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        myDBHelper.insertData_AbnormalHrP01("2020-11-28", 7);
 //        myDBHelper.insertData_AbnormalHrP01("2020-11-29", 19);
 //        myDBHelper.insertData_AbnormalHrP01("2020-11-30", 13);
-//
-//
+////
+////
 //        myDBHelper.insertData_DataHR("P01","2020-11-01","00:10:12", 71);
 //        myDBHelper.insertData_DataHR("P01","2020-11-01","00:15:26", 71);
 //        myDBHelper.insertData_DataHR("P01","2020-11-01","00:20:13", 70);
@@ -426,7 +432,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-        //drawer
+//        drawer
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
