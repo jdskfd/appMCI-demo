@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -65,12 +66,62 @@ public class TodoAdapter extends ArrayAdapter<ItemMapping> {
             @Override
             public void onClick(View v) {
                 String test = String.valueOf(currentName.getItemType());
+
+
                 if (test.contains("上肢")) {
                     AppCompatActivity activity = (AppCompatActivity) view.getContext();
                     Fragment fragment = new UpExercise();
                     activity.getSupportFragmentManager()
                             .beginTransaction().addToBackStack(null)
                             .replace(R.id.fragment_container,fragment).commit();
+                }
+
+                switch (currentName.getItemTypeIndex()){
+                    case "0":
+                        AppCompatActivity activity0 = (AppCompatActivity) view.getContext();
+                        Fragment medicine = new FragmentHome();
+                        activity0.getSupportFragmentManager()
+                                .beginTransaction().addToBackStack(null)
+                                .replace(R.id.fragment_container,medicine).commit();
+                        break;
+                    case "1":
+                        AppCompatActivity activity1 = (AppCompatActivity) view.getContext();
+                        Fragment upExercise = new UpExercise();
+                        activity1.getSupportFragmentManager()
+                                .beginTransaction().addToBackStack(null)
+                                .replace(R.id.fragment_container,upExercise).commit();
+                        break;
+                    case "2":
+                        AppCompatActivity activity2 = (AppCompatActivity) view.getContext();
+                        Fragment downExercise = new DownExercise();
+                        activity2.getSupportFragmentManager()
+                                .beginTransaction().addToBackStack(null)
+                                .replace(R.id.fragment_container,downExercise).commit();
+                        break;
+                    case "3":
+                        AppCompatActivity activity3 = (AppCompatActivity) view.getContext();
+                        Fragment  cognitionExercise= new CognitionExercise();
+                        activity3.getSupportFragmentManager()
+                                .beginTransaction().addToBackStack(null)
+                                .replace(R.id.fragment_container,cognitionExercise).commit();
+                        break;
+                    case "4":
+                        AppCompatActivity activity4 = (AppCompatActivity) view.getContext();
+                        Fragment eating = new Eating();
+                        activity4.getSupportFragmentManager()
+                                .beginTransaction().addToBackStack(null)
+                                .replace(R.id.fragment_container,eating).commit();
+                        break;
+                    case "5":
+                        AppCompatActivity activity5 = (AppCompatActivity) view.getContext();
+                        Fragment knowledge = new Sleeping();
+                        activity5.getSupportFragmentManager()
+                                .beginTransaction().addToBackStack(null)
+                                .replace(R.id.fragment_container,knowledge).commit();
+                        break;
+                    default:
+                        Log.e("error of todoFragment ", "no match" );
+                        break;
                 }
                 Log.e("todoAdapter", "swipelayout onClick: success" );
             }

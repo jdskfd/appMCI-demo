@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         MyDBHelper myDBHelper = new MyDBHelper(getApplicationContext(),"mciSQLite.db",null,1);
 
 //        myDBHelper.deleteSchedule("1%","%1800%");
-
+//
 //        myDBHelper.insertData_ScheduleP01("1-12-0");
 //        myDBHelper.insertData_ScheduleP01("1-18-0");
 //
@@ -429,8 +429,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        myDBHelper.insertData_DataHR("P01","2020-11-01","23:45:29", 88);
 //        myDBHelper.insertData_DataHR("P01","2020-11-01","23:50:58", 77);
 //        myDBHelper.insertData_DataHR("P01","2020-11-01","23:55:17", 81);
-
-
 
 //        drawer
         Toolbar toolbar = findViewById(R.id.toolbar);

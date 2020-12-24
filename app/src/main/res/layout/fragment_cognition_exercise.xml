@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <WebView
-            android:id="@+id/up_webview"
+            android:id="@+id/cognition_webview"
             android:layout_width="406dp"
             android:layout_height="464dp"
             app:layout_constraintBottom_toBottomOf="parent"

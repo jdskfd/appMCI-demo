@@ -2,7 +2,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/up"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".todoFunction.UpExercise">
@@ -12,9 +11,9 @@
         android:layout_height="match_parent">
 
         <WebView
-            android:id="@+id/up_webview"
-            android:layout_width="406dp"
-            android:layout_height="464dp"
+            android:id="@+id/down_webview"
+            android:layout_width="402dp"
+            android:layout_height="431dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
