@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //new service db
         MyDBHelper myDBHelper = new MyDBHelper(getApplicationContext(),"mciSQLite.db",null,1);
 
+
 //        myDBHelper.insertData_StepsTotalP01("2020-11-09", 6069);
 //        myDBHelper.insertData_StepsTotalP01("2020-11-10", 9145);
 //        myDBHelper.insertData_StepsTotalP01("2020-11-11", 9718);
