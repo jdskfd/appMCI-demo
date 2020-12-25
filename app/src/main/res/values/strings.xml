@@ -2,7 +2,7 @@
     <string name="app_name">appMCI</string>
 
     <!--homeFragment-->
-    <string name="high_hr">心率偏高 可能原因:</string>
+    <string name="high_hr">心率偏高</string>
     <string name="reason">焦慮、運動、藥物影響</string>
 
     <string name="laydown">臥姿</string>

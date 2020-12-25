@@ -505,7 +505,15 @@ public class FragmentHealth extends Fragment {
         btnDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                TextView titleHR = getActivity().findViewById(R.id.titleHR);
+                TextView titleSteps = getActivity().findViewById(R.id.titleSteps);
+                titleHR.setText("昨日心率圖表");
+                titleSteps.setText("昨日活動量圖表");
 
+                TextView step_target = getActivity().findViewById(R.id.step_target_done);
+                TextView sleep_status = getActivity().findViewById(R.id.sleep_status);
+                step_target.setText("昨日夜間步數:105 \n上週夜間平均步數:214 \n退步96.7%");
+                sleep_status.setText("昨日活動量:7206 \n上週活動量:7274 \n退步0.01%");
                 draw_hr_lineChart(hr_day);
                 draw_step_barChart(steps_day);
                 draw_sleep_pieChart(sleep_day);
@@ -516,7 +524,15 @@ public class FragmentHealth extends Fragment {
         btnWeek.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                TextView titleHR = getActivity().findViewById(R.id.titleHR);
+                TextView titleSteps = getActivity().findViewById(R.id.titleSteps);
+                titleHR.setText("本周異常心率圖表");
+                titleSteps.setText("本周活動量圖表");
 
+                TextView step_target = getActivity().findViewById(R.id.step_target_done);
+                TextView sleep_status = getActivity().findViewById(R.id.sleep_status);
+                step_target.setText("本週平均活動量:8416 \n上週活動量:7645 \n進步10.1%");
+                sleep_status.setText("本週夜間步數:421 \n上週夜間離床:214 \n退步50%");
                 draw_hr_lineChart(hr_week);
                 draw_step_barChart(steps_week);
                 draw_sleep_pieChart(sleep_week);
@@ -526,7 +542,15 @@ public class FragmentHealth extends Fragment {
         btnMonth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                TextView titleHR = getActivity().findViewById(R.id.titleHR);
+                TextView titleSteps = getActivity().findViewById(R.id.titleSteps);
+                titleHR.setText("本月異常心率圖表");
+                titleSteps.setText("本月活動量圖表");
 
+                TextView step_target = getActivity().findViewById(R.id.step_target_done);
+                TextView sleep_status = getActivity().findViewById(R.id.sleep_status);
+                step_target.setText("本月活動量:6117 \n上月活動量:7274 \n退步1.18%");
+                sleep_status.setText("本月夜間平均步數:223 \n上月夜間離床量:223");
                 draw_hr_lineChart(hr_month);
                 draw_step_barChart(steps_month);
                 draw_sleep_pieChart(sleep_month);
