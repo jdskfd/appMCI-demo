@@ -2,52 +2,65 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#cae4fc">
+    android:background="@color/mainBG">
 
-    <RelativeLayout
-        android:id="@+id/displayHint"
-        android:background="#f2f5f8"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="25dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/analysis_display"
         >
-        <ImageView
-            android:id="@+id/hintIcon"
-            android:layout_centerHorizontal="true"
-            android:layout_centerInParent="true"
-            android:layout_width="70pt"
-            android:layout_height="70pt"
-            android:scaleType="fitXY"
-            android:src="@drawable/normal">
-        </ImageView>
-        <TextView
-            android:id="@+id/hintText"
-            android:layout_below="@id/hintIcon"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="25px"
-            android:text=""
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </TextView>
-    </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/analysis_container"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:background="@drawable/shape_rectangle"
+                android:id="@+id/hintIcon"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_width="60pt"
+                android:layout_height="match_parent"
+                android:src="@drawable/normal"
+                >
+            </ImageView>
+            <TextView
+                android:background="@drawable/shape_rectangle"
+                android:id="@+id/hintText"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="尚未收到近期分析結果"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/displayHR"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/displayRun"
-        android:layout_below="@id/displayHint"
+        android:layout_below="@id/analysis_display"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="-3dp"
-        android:orientation="vertical">
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:orientation="vertical"
+        android:background="@drawable/shape_rectangle">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
 
             <TextView
                 android:id="@+id/f1_text_previousHR"
@@ -55,66 +68,73 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:text="@string/home_text_previousHR"
-                android:textSize="25sp"/>
+                android:textSize="25sp"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/f1_hr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="10dp"
                 android:textSize="50dp"
-                android:text="68"/>
+                android:text="68"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/f1_text_hrUnit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
                 android:text="@string/home_text_hrUnit"
-                android:textSize="25dp"/>
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:textColor="@color/mainPink"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="right">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="@string/home_text_expect"
-                android:textSize="25sp"/>
+                android:textSize="20sp"
+                android:textColor="@color/lightGrey"/>
 
             <TextView
                 android:id="@+id/expectHR_min"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="60"
-                android:textSize="25sp"/>
+                android:textSize="20sp"
+                android:textColor="@color/lightGrey"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="@string/home_text_dash"
-                android:textSize="25sp"/>
+                android:textSize="20sp"
+                android:textColor="@color/lightGrey"/>
 
             <TextView
                 android:id="@+id/expectHR_max"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="100"
-                android:textSize="25sp"/>
+                android:textSize="20sp"
+                android:textColor="@color/lightGrey"/>
         </LinearLayout>
         <Button
             android:id="@+id/btnNotify"
@@ -127,43 +147,53 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_below="@+id/displayHR"
         android:layout_marginBottom="16dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@drawable/steps_background"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="10dp"
             android:text="今日活動量:"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/step"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15pt"
+            android:layout_marginLeft="5pt"
             android:text="2949"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:textColor="@color/white"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15pt"
+            android:layout_marginLeft="5pt"
             android:text="/"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:textColor="@color/white"/>
         <TextView
             android:id="@+id/stepTarget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15pt"
+            android:layout_marginLeft="5pt"
             android:text="7520"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5pt"
             android:text="步"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:textColor="@color/white"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </RelativeLayout>

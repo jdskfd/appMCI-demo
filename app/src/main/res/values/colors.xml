@@ -6,6 +6,13 @@
     <color name="lightGrey">#d4d4d4</color>
     <color name="tiffanyBlue">#81D8D0</color>
     <color name="darkBlueLine">#2a6d82</color>
+    <color name="deepBlue">#364275</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#1a1a1d</color>
+
+    <color name="backgroundGrey">#e4e4e4</color>
+    <color name="hrRed">#e44c31</color>
+
 
     <color name="mainBG">#28334E</color>
     <color name="mainLight">#6B7491</color>
