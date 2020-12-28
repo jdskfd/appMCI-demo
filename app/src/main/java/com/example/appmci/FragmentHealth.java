@@ -507,7 +507,7 @@ public class FragmentHealth extends Fragment {
             public void onClick(View view) {
                 TextView titleHR = getActivity().findViewById(R.id.titleHR);
                 TextView titleSteps = getActivity().findViewById(R.id.titleSteps);
-                titleHR.setText("昨日心率圖表");
+                titleHR.setText("昨日心率起伏圖表");
                 titleSteps.setText("昨日活動量圖表");
 
                 TextView step_target = getActivity().findViewById(R.id.step_target_done);
@@ -526,7 +526,7 @@ public class FragmentHealth extends Fragment {
             public void onClick(View view) {
                 TextView titleHR = getActivity().findViewById(R.id.titleHR);
                 TextView titleSteps = getActivity().findViewById(R.id.titleSteps);
-                titleHR.setText("本周異常心率圖表");
+                titleHR.setText("本周異常心率次數圖表");
                 titleSteps.setText("本周活動量圖表");
 
                 TextView step_target = getActivity().findViewById(R.id.step_target_done);
@@ -544,7 +544,7 @@ public class FragmentHealth extends Fragment {
             public void onClick(View view) {
                 TextView titleHR = getActivity().findViewById(R.id.titleHR);
                 TextView titleSteps = getActivity().findViewById(R.id.titleSteps);
-                titleHR.setText("本月異常心率圖表");
+                titleHR.setText("本月異常心率次數圖表");
                 titleSteps.setText("本月活動量圖表");
 
                 TextView step_target = getActivity().findViewById(R.id.step_target_done);
@@ -592,10 +592,10 @@ public class FragmentHealth extends Fragment {
     private void draw_hr_lineChart(final ArrayList<Entry> db_data) {
         final LineDataSet set, set1, set_end, set1_end;
         // greenLine
-        set = new LineDataSet(db_data, "Weekly Steps");
+        set = new LineDataSet(db_data, "");
         set.setMode(LineDataSet.Mode.LINEAR);//類型為折線
-        set.setColor(getResources().getColor(R.color.darkBlueLine));//線的顏色
-        set.setLineWidth(1.5f);//線寬
+        set.setColor(getResources().getColor(R.color.lightWhiteBlue));//線的顏色
+        set.setLineWidth(1.0f);//線寬
         set.setDrawCircles(false); //不顯示相應座標點的小圓圈(預設顯示)
         set.setDrawValues(false);//不顯示座標點對應Y軸的數字(預設顯示)
         //理解爲多條線的集合

@@ -1,17 +1,27 @@
 package com.example.appmci;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.appmci.bluetooth.BLEScan;
@@ -33,6 +43,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static final String TAG = "MainActivity";
     private DrawerLayout drawer;
 
+    private Notification notification;
+    private NotificationManager manager;
+    NotificationChannel channel;
+    Button notifyBtn;
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +58,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startService(serverServiceIntent);
         startService(new Intent(this, BLEScan.class));
         startService(new Intent(this, MyServiceDB.class));
+
+        //notify
+        //        取得通知服務
+//        manager = (NotificationManager)this.getSystemService(NOTIFICATION_SERVICE);
+//        channel = new NotificationChannel("ID","notification_text", NotificationManager.IMPORTANCE_HIGH);
+//        manager.createNotificationChannel(channel);
+
+
+
+
+
+
 
         //new service db
         MyDBHelper myDBHelper = new MyDBHelper(getApplicationContext(),"mciSQLite.db",null,1);
@@ -531,4 +559,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     return true;
                 }
             };
+
+
+
+//    private Notification notification_method(String title,String text) {
+//        Log.d("Debug","notification");
+//
+//        //        建構notification物件，1.設定標題、2.設定訊息、3.設定時間、4.設定小圖示
+//
+//        return notification = new Notification.Builder(this)
+//                .setContentTitle(title)
+//                .setContentText(text)
+//                .setTicker("hello")
+//                .setWhen(System.currentTimeMillis())
+//                .setSmallIcon(R.drawable.danger)
+//                .build();
+//    }
+//
+//
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        //        執行通知
+//        manager.notify(0,notification_method("訊息","訊息來了"));
+//        Log.d("Debug","onResume");
+//    }
+//
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        //        執行通知
+//        manager.notify(1,notification_method("訊息","訊息結束"));
+//        Log.d("Debug","onPause");
+//    }
+
+
+
+
 }

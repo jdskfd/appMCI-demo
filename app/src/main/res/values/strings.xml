@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">appMCI</string>
+    <string name="app_name">失智長輩穿戴關懷系統</string>
 
     <!--homeFragment-->
     <string name="high_hr">心率偏高</string>
@@ -7,6 +7,7 @@
 
     <string name="laydown">臥姿</string>
     <string name="recentGood">近期狀況良好</string>
+    <string name="tooFar">距離過遠！請注意患者動向</string>
 
     <!-- menu:drawer -->
     <string name="navigation_drawer_open">Open navigation drawer</string>

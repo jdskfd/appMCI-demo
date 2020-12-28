@@ -3,30 +3,21 @@ package com.example.appmci.todoFunction;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.FragmentManager;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.example.appmci.FragmentBook;
 import com.example.appmci.FragmentHome;
-import com.example.appmci.FragmentTest;
-import com.example.appmci.MainActivity;
 import com.example.appmci.MyDBHelper;
 import com.example.appmci.R;
 
@@ -47,6 +38,10 @@ public class TodoAdapter extends ArrayAdapter<ItemMapping> {
         final MyDBHelper myDBHelper = new MyDBHelper(getContext(),"mciSQLite.db",null,1);
 
 
+        //notification
+//        TimeAlarmActivity timeAlarmActivity = new TimeAlarmActivity();
+//        timeAlarmActivity.setAlarm();
+
 //        listItemView可能會是空的，例如App剛啟動時，沒有預先儲存的view可使用
         if(convertView == null){
             view = LayoutInflater.from(getContext()).inflate(R.layout.adapter_view_layout, parent, false);
@@ -54,6 +49,7 @@ public class TodoAdapter extends ArrayAdapter<ItemMapping> {
             viewHolder.image = (ImageView) view.findViewById(R.id.todoImage);
             viewHolder.name = (TextView) view.findViewById(R.id.item_name);
             viewHolder.time = (TextView) view.findViewById(R.id.item_time);
+
             viewHolder.delete = view.findViewById(R.id.delete_button);
             view.setTag(viewHolder);
         }
@@ -161,11 +157,14 @@ public class TodoAdapter extends ArrayAdapter<ItemMapping> {
         return view;
     }
 
+
+
     class ViewHolder{
         ImageView image;
         TextView name;
         TextView time;
         View delete;
+
     }
 
 }

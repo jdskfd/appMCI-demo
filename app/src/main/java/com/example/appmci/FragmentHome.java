@@ -1,9 +1,12 @@
 package com.example.appmci;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -11,12 +14,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.appmci.database.ConnectionClass;
@@ -34,24 +40,23 @@ public class FragmentHome extends Fragment {
 
     public  class MyReceiver extends BroadcastReceiver {
         private final Handler handler; // Handler used to execute code on the UI thread
-        int hr,step,posture,rssi,analysisResult = 0;//1 正常 2 警告 0異常
+        int hr,step,posture,analysisResult,rssi = 0;//1 正常 2 警告 0異常
         String textStep,textHR;
         public MyReceiver(Handler handler) {
             this.handler = handler;
         }
         @Override
         public void onReceive(final Context context, Intent intent) {
-            rssi = (intent.getIntExtra("rssi",0));
             hr = (intent.getIntExtra("hr",0));
             step = (intent.getIntExtra("step",0));
             posture = intent.getIntExtra("posture",0);
+            rssi = intent.getIntExtra("rssi",0);
             analysisResult = 1;
 
             textStep = Integer.toString(step);
             hr = complement(hr);
             textHR = Integer.toString(hr);
 
-            Log.e("TAG", "onReceive: RSSI is "+rssi );
 
             handler.post(new Runnable() {
                 @Override
@@ -71,10 +76,16 @@ public class FragmentHome extends Fragment {
                         if(hr>100){
                             hintIcon.setImageResource(R.drawable.warning);
                             viewRecentStatus.setText(R.string.high_hr);
-                        }else if( posture == 1 ){
+                        }
+                        else if (rssi < -90){
+                            hintIcon.setImageResource(R.drawable.rssi);
+                            viewRecentStatus.setText(R.string.tooFar);
+                        }
+                        else if( posture == 1 ){
                             hintIcon.setImageResource(R.drawable.lay);
                             viewRecentStatus.setText(R.string.laydown);
-                        }else{
+                        }
+                        else{
                             hintIcon.setImageResource(R.drawable.normal);
                             viewRecentStatus.setText(R.string.recentGood);
                         }
@@ -90,8 +101,39 @@ public class FragmentHome extends Fragment {
         receiver = new MyReceiver(new Handler());
         getActivity().registerReceiver(receiver, new IntentFilter("bodyTagBroadcast"));
 
+        Button notifyBtn;
+
+//        notifyBtn = getActivity().findViewById(R.id.btnNotify);
+        notifyBtn = view.findViewById(R.id.btnNotify);
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("MyNotify","MyNotify", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getActivity().getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+    }
+
+        notifyBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), "MyNotify");
+                builder.setContentTitle("title");
+                builder.setContentText("text");
+                builder.setTicker("hello");
+//                builder.setWhen(System.currentTimeMillis());
+                builder.setSmallIcon(R.drawable.danger);
+                builder.setAutoCancel(true);
+
+                NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getActivity());
+                managerCompat.notify(1,builder.build());
+            }
+
+        });
+
         return view;
     }
+
+
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -239,4 +281,8 @@ public class FragmentHome extends Fragment {
 //            //frag 結束時，請handler把runnable關掉
 //        }
 //    }
+
+
+
+
 }

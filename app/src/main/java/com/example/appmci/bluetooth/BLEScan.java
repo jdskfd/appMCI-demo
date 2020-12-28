@@ -185,12 +185,14 @@ public class BLEScan extends Service{
                         Log.e("debug", "Posture: "+posture);
                         Log.e("debug", "HR: "+hr);
                         Log.e("debug", "Steps: "+steps);
+                        Log.e("debug","RSSI: " + rssi);
 
                         Bundle bundle = new Bundle();
                         bundle.putInt("hr", hr);
                         bundle.putInt("rssi", rssi);
                         bundle.putInt("step", steps);
                         bundle.putInt("posture", posture);
+                        bundle.putInt("rssi",rssi);
                         Intent broadIntent = new Intent("bodyTagBroadcast");
                         broadIntent.putExtras(bundle);
                         sendBroadcast(broadIntent);
