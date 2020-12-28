@@ -34,13 +34,14 @@ public class FragmentHome extends Fragment {
 
     public  class MyReceiver extends BroadcastReceiver {
         private final Handler handler; // Handler used to execute code on the UI thread
-        int hr,step,posture,analysisResult = 0;//1 正常 2 警告 0異常
+        int hr,step,posture,rssi,analysisResult = 0;//1 正常 2 警告 0異常
         String textStep,textHR;
         public MyReceiver(Handler handler) {
             this.handler = handler;
         }
         @Override
         public void onReceive(final Context context, Intent intent) {
+            rssi = (intent.getIntExtra("rssi",0));
             hr = (intent.getIntExtra("hr",0));
             step = (intent.getIntExtra("step",0));
             posture = intent.getIntExtra("posture",0);
@@ -50,6 +51,7 @@ public class FragmentHome extends Fragment {
             hr = complement(hr);
             textHR = Integer.toString(hr);
 
+            Log.e("TAG", "onReceive: RSSI is "+rssi );
 
             handler.post(new Runnable() {
                 @Override
