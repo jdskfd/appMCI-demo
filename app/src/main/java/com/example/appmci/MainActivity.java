@@ -1,16 +1,27 @@
 package com.example.appmci;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.appmci.bluetooth.BLEScan;
@@ -20,6 +31,7 @@ import com.example.appmci.drawerFragments.ProfileFragment;
 import com.example.appmci.drawerFragments.SetHWFragment;
 import com.example.appmci.bluetooth.BLEScan;
 
+import com.example.appmci.todoFunction.ItemMapping;
 import com.facebook.stetho.Stetho;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -31,6 +43,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static final String TAG = "MainActivity";
     private DrawerLayout drawer;
 
+    private Notification notification;
+    private NotificationManager manager;
+    NotificationChannel channel;
+    Button notifyBtn;
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,12 +57,63 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent serverServiceIntent = new Intent(this, GetServerDataService.class);
         startService(serverServiceIntent);
         startService(new Intent(this, BLEScan.class));
-//        startService(new Intent(this, MyServiceDB.class));
+        startService(new Intent(this, MyServiceDB.class));
+
+        //notify
+        //        取得通知服務
+//        manager = (NotificationManager)this.getSystemService(NOTIFICATION_SERVICE);
+//        channel = new NotificationChannel("ID","notification_text", NotificationManager.IMPORTANCE_HIGH);
+//        manager.createNotificationChannel(channel);
+
+
+
+
+
+
 
         //new service db
         MyDBHelper myDBHelper = new MyDBHelper(getApplicationContext(),"mciSQLite.db",null,1);
 
-
+//        myDBHelper.deleteSchedule("1%","%1800%");
+//
+//        myDBHelper.insertData_ScheduleP01("1-12-0");
+//        myDBHelper.insertData_ScheduleP01("1-18-0");
+//
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:01:34",14);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:02:51",15);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:03:23",15);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:04:33",18);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:05:15",21);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:06:45",23);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:07:16",23);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:08:54",25);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:09:32",323);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:10:51",774);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:11:28",2142);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:12:25",2471);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:13:35",2732);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:14:17",3451);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:15:46",4896);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:16:28",5218);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:17:29",5971);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:18:54",6173);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:19:22",6517);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:20:19",6971);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:21:52",7031);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:22:49",7129);
+//        myDBHelper.insertData_DataSteps("P01","2020-11-01","00:23:31",7206);
+////
+////
+////
+////
+//        myDBHelper.insertData_StepsTotalP01("2020-11-01", 7206);
+//        myDBHelper.insertData_StepsTotalP01("2020-11-02", 8124);
+//        myDBHelper.insertData_StepsTotalP01("2020-11-03", 7914);
+//        myDBHelper.insertData_StepsTotalP01("2020-11-04", 5919);
+//        myDBHelper.insertData_StepsTotalP01("2020-11-05", 9012);
+//        myDBHelper.insertData_StepsTotalP01("2020-11-06", 8213);
+//        myDBHelper.insertData_StepsTotalP01("2020-11-07", 7129);
+//        myDBHelper.insertData_StepsTotalP01("2020-11-08", 5322);
 //        myDBHelper.insertData_StepsTotalP01("2020-11-09", 6069);
 //        myDBHelper.insertData_StepsTotalP01("2020-11-10", 9145);
 //        myDBHelper.insertData_StepsTotalP01("2020-11-11", 9718);
@@ -67,7 +136,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        myDBHelper.insertData_StepsTotalP01("2020-11-28", 6990);
 //        myDBHelper.insertData_StepsTotalP01("2020-11-29", 11506);
 //        myDBHelper.insertData_StepsTotalP01("2020-11-30", 8139);
-
+////
+////
+//        myDBHelper.insertData_AbnormalHrP01("2020-11-01", 22);
+//        myDBHelper.insertData_AbnormalHrP01("2020-11-02", 11);
+//        myDBHelper.insertData_AbnormalHrP01("2020-11-03", 7);
+//        myDBHelper.insertData_AbnormalHrP01("2020-11-04", 13);
+//        myDBHelper.insertData_AbnormalHrP01("2020-11-05", 8);
+//        myDBHelper.insertData_AbnormalHrP01("2020-11-06", 12);
+//        myDBHelper.insertData_AbnormalHrP01("2020-11-07", 9);
+//        myDBHelper.insertData_AbnormalHrP01("2020-11-08", 20);
 //        myDBHelper.insertData_AbnormalHrP01("2020-11-09", 18);
 //        myDBHelper.insertData_AbnormalHrP01("2020-11-10", 12);
 //        myDBHelper.insertData_AbnormalHrP01("2020-11-11", 8);
@@ -90,8 +168,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        myDBHelper.insertData_AbnormalHrP01("2020-11-28", 7);
 //        myDBHelper.insertData_AbnormalHrP01("2020-11-29", 19);
 //        myDBHelper.insertData_AbnormalHrP01("2020-11-30", 13);
-
-
+////
+////
+//        myDBHelper.insertData_DataHR("P01","2020-11-01","00:10:12", 71);
+//        myDBHelper.insertData_DataHR("P01","2020-11-01","00:15:26", 71);
 //        myDBHelper.insertData_DataHR("P01","2020-11-01","00:20:13", 70);
 //        myDBHelper.insertData_DataHR("P01","2020-11-01","00:25:23", 72);
 //        myDBHelper.insertData_DataHR("P01","2020-11-01","00:30:45", 72);
@@ -377,10 +457,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        myDBHelper.insertData_DataHR("P01","2020-11-01","23:45:29", 88);
 //        myDBHelper.insertData_DataHR("P01","2020-11-01","23:50:58", 77);
 //        myDBHelper.insertData_DataHR("P01","2020-11-01","23:55:17", 81);
-//        myDBHelper.removeHR("P01");
 
-
-        //drawer
+//        drawer
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -483,4 +561,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     return true;
                 }
             };
+
+
+
+//    private Notification notification_method(String title,String text) {
+//        Log.d("Debug","notification");
+//
+//        //        建構notification物件，1.設定標題、2.設定訊息、3.設定時間、4.設定小圖示
+//
+//        return notification = new Notification.Builder(this)
+//                .setContentTitle(title)
+//                .setContentText(text)
+//                .setTicker("hello")
+//                .setWhen(System.currentTimeMillis())
+//                .setSmallIcon(R.drawable.danger)
+//                .build();
+//    }
+//
+//
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        //        執行通知
+//        manager.notify(0,notification_method("訊息","訊息來了"));
+//        Log.d("Debug","onResume");
+//    }
+//
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        //        執行通知
+//        manager.notify(1,notification_method("訊息","訊息結束"));
+//        Log.d("Debug","onPause");
+//    }
+
+
+
+
 }

@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e3fdf0">
+    android:background="#e3fdf0"
+    android:id="@+id/fragment_test">
     <TextView
         android:id="@+id/bookTitle"
         android:layout_alignParentTop="true"
@@ -12,19 +13,31 @@
         android:textSize="15pt"
         android:background="#a0f3d2"
         />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/list"
+        android:layout_below="@id/bookTitle"
+        android:layout_above="@id/btnAddItem"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_centerInParent="true"
+        />
+    <Button
+        android:id="@+id/btnAddItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_below="@+id/bookTitle">
-        <ListView
-            android:id="@+id/test_list_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="10px"
-            android:paddingBottom="10px"
-            />
-    </LinearLayout>
+        android:layout_marginStart="155dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginRight="168dp"
+        android:layout_marginBottom="9dp"
+        android:onClick="onAddItem"
+        android:text="Add Item" />
+
 </RelativeLayout>

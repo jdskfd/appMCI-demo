@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EAF2EF"
+    android:background="@color/mainBG"
     android:id="@+id/fragment_health">
 
 
@@ -20,35 +20,57 @@
         <Button
             android:id="@+id/day_btn"
             android:text="日"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:textColor="@color/lightWhiteBlue"
+            android:layout_width="95dp"
+            android:layout_height="50dp"/>
         <Button
             android:id="@+id/week_btn"
             android:text="週"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
+            android:layout_width="95dp"
+            android:layout_height="50dp"/>
         <Button
             android:id="@+id/month_btn"
             android:text="月"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
+            android:layout_width="95dp"
+            android:layout_height="50dp"/>
         <Button
             android:id="@+id/analysis_report_btn"
             android:text="智慧分析"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
+            android:layout_width="95dp"
+            android:layout_height="50dp"/>
     </LinearLayout>
+    <TextView
+        android:id="@+id/titleHR"
+        android:text="昨日心率圖表"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/lightWhiteBlue"
+        android:layout_below="@id/btn_row"
+        />
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/line_chart"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:layout_below="@id/btn_row"
+        android:layout_below="@id/titleHR"
+        />
+    <TextView
+        android:id="@+id/titleSteps"
+        android:text="昨日步數圖表"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/lightWhiteBlue"
+        android:layout_below="@id/line_chart"
         />
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/bar_chart"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:layout_below="@+id/line_chart"
+            android:layout_below="@+id/titleSteps"
         />
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pie_chart"
@@ -59,18 +81,20 @@
         />
         <TextView
             android:id="@+id/step_target_done"
-            android:text="本週活動量:8416 \n上週活動量:7274 \n進步15.7%"
-            android:textSize="22sp"
+            android:text="昨日夜間步數:105 \n上週夜間平均步數:214 \n退步96.7%"
+            android:textSize="18sp"
             android:layout_width="200dp"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
+            android:textColor="@color/lightWhiteBlue"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/bar_chart"/>
     <TextView
         android:id="@+id/sleep_status"
-        android:text="本週夜間步數:421 \n上週夜間離床量:214 \n退步96.7%"
-        android:textSize="22sp"
+        android:text="昨日活動量:7206 \n上週活動量:7274 \n退步0.01%"
+        android:textSize="18sp"
         android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
+        android:textColor="@color/lightWhiteBlue"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/step_target_done"/>
 

@@ -1,12 +1,13 @@
 <resources>
-    <string name="app_name">appMCI</string>
+    <string name="app_name">失智長輩穿戴關懷系統</string>
 
     <!--homeFragment-->
-    <string name="high_hr">心率偏高 可能原因:</string>
+    <string name="high_hr">心率偏高</string>
     <string name="reason">焦慮、運動、藥物影響</string>
 
     <string name="laydown">臥姿</string>
     <string name="recentGood">近期狀況良好</string>
+    <string name="tooFar">距離過遠！請注意患者動向</string>
 
     <!-- menu:drawer -->
     <string name="navigation_drawer_open">Open navigation drawer</string>

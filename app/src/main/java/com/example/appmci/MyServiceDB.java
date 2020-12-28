@@ -5,12 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 
 import android.os.Handler;
-import android.util.Log;
 import android.widget.Toast;
-
-import com.github.mikephil.charting.data.Entry;
-
-import java.util.ArrayList;
 
 
 public class MyServiceDB extends Service {
@@ -40,10 +35,18 @@ public class MyServiceDB extends Service {
 //                data = myDBHelper.doAryList();
 //                Log.e(TAG, "data_in_service: "+ data );
 
-                mHandler.postDelayed(mRunnable, 100 * 1000);
+
+//                NotificationCompat notification ;
+//                notification = new NotificationCompat.Builder(this);
+//                notification.setAutoCancel(true);
+//
+//                TimeAlarmActivity timeAlarmActivity = new TimeAlarmActivity();
+//        timeAlarmActivity.setAlarm();
+
+                mHandler.postDelayed(mRunnable, 10 * 1000);
             }
         };
-        mHandler.postDelayed(mRunnable, 100 * 1000);
+        mHandler.postDelayed(mRunnable, 10 * 1000);
 
         return super.onStartCommand(intent, flags, startId);
     }

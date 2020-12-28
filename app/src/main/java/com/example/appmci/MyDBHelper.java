@@ -9,6 +9,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.example.appmci.todoFunction.ItemMapping;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 
@@ -70,6 +71,12 @@ public class MyDBHelper extends SQLiteOpenHelper{
             "day_steps_month_avg INTEGER, " +
             "night_steps_month_avg INTEGER )";
 
+    private String getCreateTable_ScheduleP01 = "CREATE TABLE ScheduleP01 ( _id INTEGER PRIMARY KEY , " +
+            "type String )";// type = x + y + z ; x = 項目的index; y = 時間; z = status(0 or 1);
+
+
+
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(createTable_InstantData);
@@ -80,7 +87,7 @@ public class MyDBHelper extends SQLiteOpenHelper{
         db.execSQL(createTable_SleepDayP01);
         db.execSQL(createTable_SleepWeekP01);
         db.execSQL(createTable_SleepMonthP01);
-
+        db.execSQL(getCreateTable_ScheduleP01);
     }
 
     @Override
@@ -89,6 +96,18 @@ public class MyDBHelper extends SQLiteOpenHelper{
     }
 
     //insert data
+    public boolean insertData_ScheduleP01 (String type)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("type",type);
+        long result=db.insert("ScheduleP01",null,contentValues);
+        if(result==-1)
+            return false;
+        else
+            return true;
+    }
+
     public boolean insertData_DataHR (String p_id ,String date ,String time ,Integer hr)
     {
         SQLiteDatabase db=this.getWritableDatabase();
@@ -131,6 +150,33 @@ public class MyDBHelper extends SQLiteOpenHelper{
         else
             return true;
     }
+
+    //new
+    public boolean insertData_DataSteps (String p_id, String date, String time, Integer steps)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+
+        contentValues.put("p_id",p_id);
+        contentValues.put("date",date);
+        contentValues.put("time",time);
+        contentValues.put("steps",steps);
+
+        long result=db.insert("DataSteps",null,contentValues);
+        if(result==-1)
+            return false;
+        else
+            return true;
+    }
+        public void deleteSchedule(String remove_type, String remove_time) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String deleteSchedule = "DELETE FROM ScheduleP01 WHERE type LIKE "+"'"+remove_type+"'"+" AND type LIKE "+"'"+remove_time+"'" ;
+        db.execSQL(deleteSchedule);
+
+//        db.delete("ScheduleP01", "type" + "=" + remove_type, null);
+        db.close();
+    }
+
 //    public void removeHR(String remove_data) {
 //        SQLiteDatabase db = this.getWritableDatabase();
 //        db.delete("DataHR", "p_id" + "=" + remove_data, null);
@@ -284,6 +330,22 @@ public class MyDBHelper extends SQLiteOpenHelper{
         return aryList_data_stepsMonth;
     }
 
+    //aryList Schedule
+    public ArrayList getScheduleFromDB() {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery(" SELECT * FROM " + "ScheduleP01", null);
+        ArrayList<ItemMapping> schedule = new ArrayList<>();
+        c.moveToFirst();
+        do {
+            String itemStr = c.getString(1);
+            ItemMapping type = new ItemMapping();
+            type.ItemSplit(itemStr);
+            schedule.add(type);
+            Log.e(TAG, "getScheduleFromDB is :"+schedule );
+        } while (c.moveToNext());
+
+        return schedule;
+    }
 
     public static boolean isAnyInfoAvailable(Context ctx){
         boolean result = false;

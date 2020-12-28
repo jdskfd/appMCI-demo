@@ -57,9 +57,9 @@ public class FragmentAnalysis extends Fragment {
         radar_model.add(new RadarEntry(7));
 
 
-        radar_report = view.findViewById(R.id.analysis_line_chart);
+//        radar_report = view.findViewById(R.id.analysis_line_chart);
 
-        draw_radarChart(radar_data,radar_model);
+//        draw_radarChart(radar_data,radar_model);
 //        draw_radarChart(radar_model);
 
 
