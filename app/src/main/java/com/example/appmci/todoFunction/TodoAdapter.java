@@ -84,45 +84,38 @@ public class TodoAdapter extends ArrayAdapter<ItemMapping> {
                 switch (currentName.getItemTypeIndex()){
                     case "0":
                         AppCompatActivity activity0 = (AppCompatActivity) view.getContext();
-                        Fragment medicine = new FragmentHome();
-                        activity0.getSupportFragmentManager()
-                                .beginTransaction().addToBackStack(null)
-                                .replace(R.id.fragment_container,medicine).commit();
-                        break;
-                    case "1":
-                        AppCompatActivity activity1 = (AppCompatActivity) view.getContext();
                         Fragment upExercise = new UpExercise();
-                        activity1.getSupportFragmentManager()
+                        activity0.getSupportFragmentManager()
                                 .beginTransaction().addToBackStack(null)
                                 .replace(R.id.fragment_container,upExercise).commit();
                         break;
-                    case "2":
-                        AppCompatActivity activity2 = (AppCompatActivity) view.getContext();
+                    case "1":
+                        AppCompatActivity activity1 = (AppCompatActivity) view.getContext();
                         Fragment downExercise = new DownExercise();
-                        activity2.getSupportFragmentManager()
+                        activity1.getSupportFragmentManager()
                                 .beginTransaction().addToBackStack(null)
                                 .replace(R.id.fragment_container,downExercise).commit();
                         break;
-                    case "3":
-                        AppCompatActivity activity3 = (AppCompatActivity) view.getContext();
-                        Fragment  cognitionExercise= new CognitionExercise();
-                        activity3.getSupportFragmentManager()
+                    case "2":
+                        AppCompatActivity activity2 = (AppCompatActivity) view.getContext();
+                        Fragment cognitionExercise = new CognitionExercise();
+                        activity2.getSupportFragmentManager()
                                 .beginTransaction().addToBackStack(null)
                                 .replace(R.id.fragment_container,cognitionExercise).commit();
                         break;
-                    case "4":
-                        AppCompatActivity activity4 = (AppCompatActivity) view.getContext();
+                    case "3":
+                        AppCompatActivity activity3 = (AppCompatActivity) view.getContext();
                         Fragment eating = new Eating();
-                        activity4.getSupportFragmentManager()
+                        activity3.getSupportFragmentManager()
                                 .beginTransaction().addToBackStack(null)
                                 .replace(R.id.fragment_container,eating).commit();
                         break;
-                    case "5":
-                        AppCompatActivity activity5 = (AppCompatActivity) view.getContext();
-                        Fragment knowledge = new Sleeping();
-                        activity5.getSupportFragmentManager()
+                    case "4":
+                        AppCompatActivity activity4 = (AppCompatActivity) view.getContext();
+                        Fragment sleeping = new Sleeping();
+                        activity4.getSupportFragmentManager()
                                 .beginTransaction().addToBackStack(null)
-                                .replace(R.id.fragment_container,knowledge).commit();
+                                .replace(R.id.fragment_container,sleeping).commit();
                         break;
                     default:
                         Log.e("error of todoFragment ", "no match" );

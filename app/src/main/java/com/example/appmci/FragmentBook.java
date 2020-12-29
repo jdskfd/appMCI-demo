@@ -29,6 +29,9 @@ import com.example.appmci.book.Train;
 import com.example.appmci.todoFunction.Eating;
 
 public class FragmentBook extends Fragment {
+    public FragmentBook() {
+        // Requires empty public constructor
+    }
 
     @Nullable
     @Override
@@ -39,97 +42,209 @@ public class FragmentBook extends Fragment {
         Button foodAdvice = view.findViewById(R.id.foodAdvice);
         Button exerciseAdvice = view.findViewById(R.id.exerciseAdvice);
         Button careAdvice = view.findViewById(R.id.careAdvice);
-        Button activity = view.findViewById(R.id.activity);
+//        Button activity = view.findViewById(R.id.activity);
         Button healthHr = view.findViewById(R.id.healthHr);
-        Button train = view.findViewById(R.id.train);
-        Button commonProblem = view.findViewById(R.id.commonProblem);
+//        Button train = view.findViewById(R.id.train);
+//        Button commonProblem = view.findViewById(R.id.commonProblem);
 
-        FragmentManager fragmentManager = getFragmentManager();
-        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+
+
+
+
 
         mciIntro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MciIntro mciIntro = new MciIntro();
-                fragmentTransaction.replace(R.id.fragment_container,mciIntro,"mciIntro");
+                final FragmentManager fragmentManager = getFragmentManager();
+                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                final FragmentBook fragmentBook = (FragmentBook)
+                        fragmentManager.findFragmentByTag("fragmentBook");
+                if (fragmentBook != null && !fragmentBook.isHidden()) {
+                    fragmentTransaction.hide(fragmentBook);
+                    fragmentTransaction.addToBackStack("fragmentBook");
+                }
+                final MciIntro mciIntro = new MciIntro();
+                if (mciIntro.isAdded()) {
+                    fragmentTransaction.show(mciIntro);
+                } else {
+                    fragmentTransaction.add(R.id.fragment_container, mciIntro, "mciIntro");
+                }
                 fragmentTransaction.commit();
             }
         });
         commonSymptom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CommonSymptom commonSymptom = new CommonSymptom();
-                fragmentTransaction.replace(R.id.fragment_container,commonSymptom,"commonSymptom");
-                fragmentTransaction.commit();
-            }
-        });
-        exerciseAdvice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ExerciseAdvice exerciseAdvice = new ExerciseAdvice();
-                fragmentTransaction.replace(R.id.fragment_container,exerciseAdvice,"exerciseAdvice");
-                fragmentTransaction.commit();
-            }
-        });
-        careAdvice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CareAdvice careAdvice = new CareAdvice();
-                fragmentTransaction.replace(R.id.fragment_container,careAdvice,"careAdvice");
-                fragmentTransaction.commit();
-            }
-        });
-        activity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ActivityBook activityBook = new ActivityBook();
-                fragmentTransaction.replace(R.id.fragment_container,activityBook,"activityBook");
-                fragmentTransaction.commit();
-            }
-        });
-        healthHr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                HealthHr healthHr = new HealthHr();
-                fragmentTransaction.replace(R.id.fragment_container,healthHr,"healthHr");
-                fragmentTransaction.commit();
-            }
-        });
-       train.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Train train = new Train();
-               fragmentTransaction.replace(R.id.fragment_container,train,"train");
-               fragmentTransaction.commit();
-           }
-       });
-        commonProblem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CommonProblem commonProblem = new CommonProblem();
-                fragmentTransaction.replace(R.id.fragment_container,commonProblem,"commonProblem");
+                final FragmentManager fragmentManager = getFragmentManager();
+                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                final FragmentBook fragmentBook = (FragmentBook)
+                        fragmentManager.findFragmentByTag("fragmentBook");
+                if (fragmentBook != null && !fragmentBook.isHidden()) {
+                    fragmentTransaction.hide(fragmentBook);
+                    fragmentTransaction.addToBackStack("fragmentBook");
+                }
+                final CommonSymptom commonSymptom = new CommonSymptom();
+                if (commonSymptom.isAdded()) {
+                    fragmentTransaction.show(commonSymptom);
+                } else {
+                    fragmentTransaction.add(R.id.fragment_container, commonSymptom, "commonSymptom");
+                }
                 fragmentTransaction.commit();
             }
         });
         foodAdvice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Eating eating = new Eating();
-                fragmentTransaction.replace(R.id.fragment_container,eating,"eating");
+                final FragmentManager fragmentManager = getFragmentManager();
+                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                final FragmentBook fragmentBook = (FragmentBook)
+                        fragmentManager.findFragmentByTag("fragmentBook");
+                if (fragmentBook != null && !fragmentBook.isHidden()) {
+                    fragmentTransaction.hide(fragmentBook);
+                    fragmentTransaction.addToBackStack("fragmentBook");
+                }
+                final Eating eating = new Eating();
+                if (eating.isAdded()) { // 如果 home fragment 已經被 add 過，
+                    fragmentTransaction.show(eating); // 顯示它。
+                } else { // 反之，
+                    fragmentTransaction.add(R.id.fragment_container, eating, "eating"); // 使用 add 方法。
+                }
                 fragmentTransaction.commit();
             }
         });
+        exerciseAdvice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final FragmentManager fragmentManager = getFragmentManager();
+                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                final FragmentBook fragmentBook = (FragmentBook)
+                        fragmentManager.findFragmentByTag("fragmentBook");
+                if (fragmentBook != null && !fragmentBook.isHidden()) {
+                    fragmentTransaction.hide(fragmentBook);
+                    fragmentTransaction.addToBackStack("fragmentBook");
+                }
+                final ExerciseAdvice exerciseAdvice = new ExerciseAdvice();
+                if (exerciseAdvice.isAdded()) {
+                    fragmentTransaction.show(exerciseAdvice);
+                } else {
+                    fragmentTransaction.add(R.id.fragment_container, exerciseAdvice, "exerciseAdvice");
+                }
+                fragmentTransaction.commit();
+            }
+        });
+        careAdvice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final FragmentManager fragmentManager = getFragmentManager();
+                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                final FragmentBook fragmentBook = (FragmentBook)
+                        fragmentManager.findFragmentByTag("fragmentBook");
+                if (fragmentBook != null && !fragmentBook.isHidden()) {
+                    fragmentTransaction.hide(fragmentBook);
+                    fragmentTransaction.addToBackStack("fragmentBook");
+                }
+                CareAdvice careAdvice = new CareAdvice();
+                if (careAdvice.isAdded()) {
+                    fragmentTransaction.show(careAdvice);
+                } else {
+                    fragmentTransaction.add(R.id.fragment_container, careAdvice, "careAdvice");
+                }
+                fragmentTransaction.commit();
+            }
+        });
+//        activity.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                final FragmentManager fragmentManager = getFragmentManager();
+//                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                final FragmentBook fragmentBook = (FragmentBook)
+//                        fragmentManager.findFragmentByTag("fragmentBook");
+//                if (fragmentBook != null && !fragmentBook.isHidden()) {
+//                    fragmentTransaction.hide(fragmentBook);
+//                    fragmentTransaction.addToBackStack("fragmentBook");
+//                }
+//                final ActivityBook activityBook = new ActivityBook();
+//                if (activityBook.isAdded()) {
+//                    fragmentTransaction.show(activityBook);
+//                } else {
+//                    fragmentTransaction.add(R.id.fragment_container, activityBook, "activityBook");
+//                }
+//                fragmentTransaction.commit();
+//            }
+//        });
+        healthHr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final FragmentManager fragmentManager = getFragmentManager();
+                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                final FragmentBook fragmentBook = (FragmentBook)
+                        fragmentManager.findFragmentByTag("fragmentBook");
+                if (fragmentBook != null && !fragmentBook.isHidden()) {
+                    fragmentTransaction.hide(fragmentBook);
+                    fragmentTransaction.addToBackStack("fragmentBook");
+                }
+                final HealthHr healthHr = new HealthHr();
+                if (healthHr.isAdded()) {
+                    fragmentTransaction.show(healthHr);
+                } else {
+                    fragmentTransaction.add(R.id.fragment_container, healthHr, "healthHr");
+                }
+                fragmentTransaction.commit();
+            }
+        });
+//       train.setOnClickListener(new View.OnClickListener() {
+//           @Override
+//           public void onClick(View view) {
+//               final FragmentManager fragmentManager = getFragmentManager();
+//               final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//               final FragmentBook fragmentBook = (FragmentBook)
+//                       fragmentManager.findFragmentByTag("fragmentBook");
+//               if (fragmentBook != null && !fragmentBook.isHidden()) {
+//                   fragmentTransaction.hide(fragmentBook);
+//                   fragmentTransaction.addToBackStack("fragmentBook");
+//               }
+//               final Train train = new Train();
+//               if (train.isAdded()) {
+//                   fragmentTransaction.show(train);
+//               } else {
+//                   fragmentTransaction.add(R.id.fragment_container, train, "train");
+//               }
+//               fragmentTransaction.commit();
+//           }
+//       });
+//        commonProblem.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                final FragmentManager fragmentManager = getFragmentManager();
+//                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                final FragmentBook fragmentBook = (FragmentBook)
+//                        fragmentManager.findFragmentByTag("fragmentBook");
+//                if (fragmentBook != null && !fragmentBook.isHidden()) {
+//                    fragmentTransaction.hide(fragmentBook);
+//                    fragmentTransaction.addToBackStack("fragmentBook");
+//                }
+//                final CommonProblem commonProblem = new CommonProblem();
+//                if (commonProblem.isAdded()) {
+//                    fragmentTransaction.show(commonProblem);
+//                } else {
+//                    fragmentTransaction.add(R.id.fragment_container, commonProblem, "commonProblem");
+//                }
+//                fragmentTransaction.commit();
+//            }
+//        });
+
 
         return view;
     }
     @Override
-    public void onPause(){
+    public void onDestroy(){
         FragmentManager fragmentManager = getFragmentManager();
         int count = getFragmentManager().getBackStackEntryCount();
         for (int i = 0 ; i < count ; i++){
             fragmentManager.popBackStack();
         }
-        super.onPause();
+        super.onDestroy();
     }
 
 }

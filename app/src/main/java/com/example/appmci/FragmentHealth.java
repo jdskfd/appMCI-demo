@@ -569,7 +569,6 @@ public class FragmentHealth extends Fragment {
                     fragmentTransaction.show(fragmentAnalysis);
                 } else {
                     fragmentTransaction.add(R.id.fragment_container,fragmentAnalysis,"fragment_analysis");
-
                 }
                 fragmentTransaction.addToBackStack("fragment_health");
                 fragmentTransaction.commit();

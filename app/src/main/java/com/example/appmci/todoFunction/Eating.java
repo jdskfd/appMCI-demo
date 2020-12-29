@@ -12,7 +12,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.appmci.FragmentBook;
 import com.example.appmci.R;
 
 public class Eating extends Fragment {
@@ -33,9 +36,6 @@ public class Eating extends Fragment {
         TextView Context3 = view.findViewById(R.id.context3);
         TextView Context4 = view.findViewById(R.id.context4);
         TextView Context5 = view.findViewById(R.id.context5);
-
-
-
 
 
         String string1 = "老人飲食設計1.需注意熱量攝取，維持體重穩定";
@@ -70,4 +70,6 @@ public class Eating extends Fragment {
 
         return view;
     }
+
 }
+

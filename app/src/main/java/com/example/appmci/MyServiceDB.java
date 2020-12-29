@@ -29,7 +29,7 @@ public class MyServiceDB extends Service {
             public void run() {
                 MyDBHelper myDBHelper = new MyDBHelper(getApplicationContext(),"mciSQLite.db",null,1);
                 boolean isInfoAvailable = myDBHelper.isAnyInfoAvailable(getApplicationContext());
-                Toast.makeText(getApplicationContext(), String.valueOf(isInfoAvailable), Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), String.valueOf(isInfoAvailable), Toast.LENGTH_LONG).show();
 
 //                ArrayList<Entry> data;
 //                data = myDBHelper.doAryList();
