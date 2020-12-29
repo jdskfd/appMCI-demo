@@ -591,7 +591,7 @@ public class FragmentHealth extends Fragment {
     private void draw_hr_lineChart(final ArrayList<Entry> db_data) {
         final LineDataSet set, set1, set_end, set1_end;
         // greenLine
-        set = new LineDataSet(db_data, "");
+        set = new LineDataSet(db_data, "心率");
         set.setMode(LineDataSet.Mode.LINEAR);//類型為折線
         set.setColor(getResources().getColor(R.color.lightWhiteBlue));//線的顏色
         set.setLineWidth(1.0f);//線寬
@@ -599,6 +599,13 @@ public class FragmentHealth extends Fragment {
         set.setDrawValues(false);//不顯示座標點對應Y軸的數字(預設顯示)
         //理解爲多條線的集合
         LineData data = new LineData(set);
+
+        XAxis xAxis = hr_report.getXAxis();
+        xAxis.setEnabled(false);
+        hr_report.getAxisLeft().setTextColor(Color.LTGRAY);
+        hr_report.getAxisRight().setTextColor(Color.LTGRAY);
+        hr_report.getLegend().setTextColor(Color.LTGRAY);
+
         hr_report.getDescription().setEnabled(false);
         hr_report.setData(data);//一定要放在最後
         hr_report.animateY(2000);
@@ -607,11 +614,17 @@ public class FragmentHealth extends Fragment {
     private void draw_step_barChart(final ArrayList<BarEntry> db_data) {
         final BarDataSet barDataSet;
 
-        barDataSet = new BarDataSet(db_data,"");
+        barDataSet = new BarDataSet(db_data,"步數單位(步)");
         barDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
 //        barDataSet.setValueTextColor(Color.BLACK);
 //        barDataSet.setValueTextSize(5f);
         BarData data = new BarData(barDataSet);
+
+        XAxis xAxis = step_report.getXAxis();
+        xAxis.setEnabled(false);
+        step_report.getAxisLeft().setTextColor(Color.LTGRAY);
+        step_report.getAxisRight().setTextColor(Color.LTGRAY);
+        step_report.getLegend().setTextColor(Color.LTGRAY);
 
         step_report.getDescription().setEnabled(false);
         step_report.setFitBars(true);
@@ -623,11 +636,13 @@ public class FragmentHealth extends Fragment {
     private void draw_sleep_pieChart(final ArrayList<PieEntry> db_data) {
         final PieDataSet pieDataSet;
 
-        pieDataSet = new PieDataSet(db_data,"");
+        pieDataSet = new PieDataSet(db_data,"夜間離床步數比率");
         pieDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
 //        pieDataSet.setValueTextColor(Color.BLACK);
 //        pieDataSet.setValueTextSize(15f);
         PieData data = new PieData(pieDataSet);
+
+        sleep_report.getLegend().setTextColor(Color.LTGRAY);
 
         sleep_report.getDescription().setEnabled(false);
         sleep_report.setData(data);

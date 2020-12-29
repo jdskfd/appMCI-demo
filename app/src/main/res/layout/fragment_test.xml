@@ -11,21 +11,45 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:text="今日照護事項"
-        android:textSize="15pt"
+        android:textSize="25sp"
         android:background="@drawable/title_style"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:padding="12dp"
         />
+    <TextView
+        android:id="@+id/frag_test_hint_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bookTitle"
+        android:textColor="@color/lightGrey"
+        android:text="===長按即可刪除==="
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="15sp"/>
+    <TextView
+        android:id="@+id/frag_test_hint_see"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frag_test_hint_delete"
+        android:textColor="@color/lightGrey"
+        android:text="===點擊即可查看相關內容==="
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="15sp"/>
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/list"
-        android:layout_below="@id/bookTitle"
+        android:layout_below="@id/frag_test_hint_see"
         android:layout_above="@id/btnAddItem"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_centerInParent="true"
         />
     <Button

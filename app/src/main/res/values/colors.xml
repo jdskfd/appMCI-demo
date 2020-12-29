@@ -15,6 +15,7 @@
 
 
     <color name="mainBG">#28334E</color>
+    <color name="mainBGLight">#37425E</color>
     <color name="mainLight">#6B7491</color>
     <color name="mainPink">#C95D94</color>
     <color name="mainBlue">#28BBD6</color>

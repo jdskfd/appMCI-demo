@@ -133,7 +133,7 @@
                 android:layout_below="@id/ana_icon3"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="25px"
-                android:text="夜間離步數走勢"
+                android:text="夜間離床步數"
                 android:textColor="@color/lightWhiteBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -224,7 +224,7 @@
                 android:layout_below="@id/ana_icon5"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="25px"
-                android:text="心率起伏狀況"
+                android:text="平均心率起伏"
                 android:textColor="@color/lightWhiteBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -238,7 +238,7 @@
                 android:layout_height="30dp"
                 android:src="@drawable/down_arrow"
                 tools:ignore="DuplicateIds"
-                android:alpha="0.7">
+                android:alpha="0.8">
             </ImageView>
         </RelativeLayout>
 
@@ -266,7 +266,7 @@
                 android:layout_below="@id/ana_icon6"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="25px"
-                android:text="臥姿比率走勢"
+                android:text="夜間活動量比率"
                 android:textColor="@color/lightWhiteBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -279,7 +279,7 @@
                 android:layout_height="30dp"
                 android:src="@drawable/up_arrow"
                 tools:ignore="DuplicateIds"
-                android:alpha="0.8">
+                android:alpha="0.7">
             </ImageView>
         </RelativeLayout>
     </LinearLayout>

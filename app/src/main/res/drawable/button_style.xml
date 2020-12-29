@@ -3,11 +3,11 @@
     <!--沒點選按鈕的時候-->
     <item android:state_pressed="false">
         <shape android:shape="rectangle">
-            <solid android:color="@color/mainBG" />
+            <solid android:color="@color/mainBGLight" />
             <corners android:radius="5dp"/>
-            <stroke
-                android:width="3dp"
-                android:color="@color/white" />
+<!--            <stroke-->
+<!--                android:width="3dp"-->
+<!--                android:color="@color/white" />-->
         </shape>
     </item>
     <!--當點選按鈕的時候-->
@@ -15,9 +15,9 @@
         <shape android:shape="rectangle">
             <solid android:color="@color/mainLight" />
             <corners android:radius="5dp"/>
-            <stroke
-                android:width="3dp"
-                android:color="@color/white" />
+<!--            <stroke-->
+<!--                android:width="3dp"-->
+<!--                android:color="@color/white" />-->
         </shape>
     </item>
 </selector>
