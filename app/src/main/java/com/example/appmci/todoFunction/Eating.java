@@ -38,11 +38,11 @@ public class Eating extends Fragment {
         TextView Context5 = view.findViewById(R.id.context5);
 
 
-        String string1 = "老人飲食設計1.需注意熱量攝取，維持體重穩定";
-        String string2 = "老人飲食設計2.老人營養需均衡，6大類食物皆必備";
-        String string3 = "老人飲食設計3.以天然辛香料取代過多調味";
-        String string4 = "老人飲食設計4.提供多變的老人營養餐";
-        String string5 = "老人飲食設計5.應使用口感鬆軟的食物";
+        String string1 = "老人飲食設計1.\n需注意熱量攝取，維持體重穩定";
+        String string2 = "老人飲食設計2.\n老人營養需均衡，6大類食物皆必備";
+        String string3 = "老人飲食設計3.\n以天然辛香料取代過多調味";
+        String string4 = "老人飲食設計4.\n提供多變的老人營養餐";
+        String string5 = "老人飲食設計5.\n應使用口感鬆軟的食物";
         String string6 = "如果老人的胃口不佳，三餐的食用量少，可以採取少量多餐的方式，並選擇營養密度高的食物，必要時可以補充一些點心，維持老人的體重及養分攝取量。";
         String string7 = "6大類食物包含：全穀雜糧類、蔬菜類、豆魚蛋肉類、乳品類、水果類及油脂類，在飲食設計上盡量每餐都均衡攝取，確保老人可以攝取所有身體所需的營養成分。";
         String string8 = "烹調以少鹽、少油、少調味為原則，過多調味料會造成血壓的負擔，可以使用九層塔、大蒜、薑等較天然的辛香料來提振食慾。此外，也要避免使用肥肉或是動物油等飽和脂肪類的食物，避免增加心血管的負擔。";

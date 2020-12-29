@@ -147,12 +147,17 @@
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/displayHR"
         android:layout_marginBottom="16dp"
-        android:orientation="horizontal"
-        android:background="@drawable/analysis_board"
+        android:orientation="vertical"
+        android:background="@drawable/title_style"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginTop="10dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -184,7 +189,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5pt"
-            android:text="7520"
+            android:text="7000"
             android:textSize="22sp"
             android:textColor="@color/white"/>
 
@@ -195,6 +200,14 @@
             android:text="步"
             android:textSize="22sp"
             android:textColor="@color/white"/>
+    </LinearLayout>
+        <ImageView
+            android:id="@+id/doctor"
+            android:layout_width="210dp"
+            android:layout_height="210dp"
+            android:src="@drawable/mci_cut2"
+            android:layout_marginTop="10dp"
+            />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </RelativeLayout>

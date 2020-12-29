@@ -105,24 +105,36 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/bar_chart"
         />
-        <TextView
-            android:id="@+id/step_target_done"
-            android:text="昨日夜間步數:105 \n上週夜間平均步數:214 \n退步96.7%"
-            android:textSize="18sp"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
-            android:textColor="@color/lightWhiteBlue"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/bar_chart"/>
-    <TextView
-        android:id="@+id/sleep_status"
-        android:text="昨日活動量:7206 \n上週活動量:7274 \n退步0.01%"
-        android:textSize="18sp"
+    <ScrollView
         android:layout_width="200dp"
-        android:layout_height="70dp"
-        android:textColor="@color/lightWhiteBlue"
+        android:layout_height="match_parent"
+        android:id="@+id/health_scroll"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/step_target_done"/>
+        android:layout_below="@+id/bar_chart"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/step_target_done"
+                android:text="昨日夜間步數:105 \n上週夜間平均步數:214 \n退步96.7%"
+                android:textSize="18sp"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:textColor="@color/lightWhiteBlue"
+                />
+            <TextView
+                android:id="@+id/sleep_status"
+                android:text="昨日活動量:7206 \n上週活動量:7274 \n退步0.01%"
+                android:textSize="18sp"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:textColor="@color/lightWhiteBlue"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/step_target_done"/>
+        </RelativeLayout>
+    </ScrollView>
+
 
 </RelativeLayout>
 
