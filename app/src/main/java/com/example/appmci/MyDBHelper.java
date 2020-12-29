@@ -176,12 +176,26 @@ public class MyDBHelper extends SQLiteOpenHelper{
 //        db.delete("ScheduleP01", "type" + "=" + remove_type, null);
         db.close();
     }
-
-//    public void removeHR(String remove_data) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        db.delete("DataHR", "p_id" + "=" + remove_data, null);
-//        db.close();
-//    }
+    public void updateScheduleTrue(String update_type, String update_time) {
+        String newType = update_type+"-"+update_time+"-"+"1";
+        String type = update_type+"%";
+        String time = "%"+update_time+"%";
+        Log.e(TAG, "updateSchedule: newType is "+newType);
+        SQLiteDatabase db = this.getWritableDatabase();
+        String updateSchedule = "UPDATE ScheduleP01 SET type= "+"'"+newType+"'"+" WHERE type LIKE "+"'"+type+"'"+" AND type LIKE "+"'"+time+"'" ;
+        db.execSQL(updateSchedule);
+        db.close();
+    }
+    public void updateScheduleFalse(String update_type, String update_time) {
+        String newType = update_type+"-"+update_time+"-"+"0";
+        String type = update_type+"%";
+        String time = "%"+update_time+"%";
+        Log.e(TAG, "updateSchedule: newType is "+newType);
+        SQLiteDatabase db = this.getWritableDatabase();
+        String updateSchedule = "UPDATE ScheduleP01 SET type= "+"'"+newType+"'"+" WHERE type LIKE "+"'"+type+"'"+" AND type LIKE "+"'"+time+"'" ;
+        db.execSQL(updateSchedule);
+        db.close();
+    }
 
 
     //home frag. instant data hr
@@ -343,9 +357,9 @@ public class MyDBHelper extends SQLiteOpenHelper{
             schedule.add(type);
             Log.e(TAG, "getScheduleFromDB is :"+schedule );
         } while (c.moveToNext());
-
         return schedule;
     }
+
 
     public static boolean isAnyInfoAvailable(Context ctx){
         boolean result = false;

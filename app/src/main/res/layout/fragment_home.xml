@@ -19,7 +19,7 @@
             android:orientation="horizontal"
             >
             <ImageView
-                android:background="@drawable/shape_rectangle"
+                android:background="@drawable/steps_background"
                 android:id="@+id/hintIcon"
                 android:layout_centerHorizontal="true"
                 android:layout_centerInParent="true"
@@ -29,7 +29,7 @@
                 >
             </ImageView>
             <TextView
-                android:background="@drawable/shape_rectangle"
+                android:background="@drawable/steps_background"
                 android:id="@+id/hintText"
                 android:layout_centerInParent="true"
                 android:gravity="center"
@@ -54,7 +54,7 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:orientation="vertical"
-        android:background="@drawable/shape_rectangle">
+        android:background="@drawable/steps_background">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -136,10 +136,6 @@
                 android:textSize="20sp"
                 android:textColor="@color/lightGrey"/>
         </LinearLayout>
-        <Button
-            android:id="@+id/btnNotify"
-            android:layout_width="100dp"
-            android:layout_height="50dp"></Button>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat

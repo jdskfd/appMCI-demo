@@ -18,9 +18,9 @@
     <string name="menu_drawer_language">語言設定</string>
 
     <!-- menu:bottom navigation -->
-    <string name="menu_home">我的主頁</string>
-    <string name="menu_health">健康狀況</string>
-    <string name="menu_test">知能測驗</string>
+    <string name="menu_home">即時數據</string>
+    <string name="menu_health">健康分析</string>
+    <string name="menu_test">照護排程</string>
     <string name="menu_book">照護百科</string>
     <string name="menu_settings">設定</string>
 
@@ -59,6 +59,8 @@
     <string name="menu_disconnect">Disconnect</string>
     <string name="menu_scan">Scan</string>
     <string name="menu_stop">Stop</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

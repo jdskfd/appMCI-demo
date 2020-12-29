@@ -2,29 +2,125 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#cae4fc">
+    android:background="@color/mainBG">
     <TextView
         android:id="@+id/bookTitle"
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="照護百科"
+        android:textColor="@color/white"
         android:textSize="15pt"
-        android:background="#a0cef3"
+        android:background="@drawable/title_style"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         />
 
-    <LinearLayout
+    <ScrollView
+        android:layout_below="@+id/bookTitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/bookTitle">
-        <ListView
-            android:id="@+id/book_list_view"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            />
-    </LinearLayout>
-
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:padding="10dp">
+            <Button
+                android:id="@+id/mciIntro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MCI簡介"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:padding="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/book_style"
+                />
+            <Button
+                android:id="@+id/commonSymptom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="常見症狀"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:padding="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/book_style"/>
+            <Button
+                android:id="@+id/foodAdvice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="飲食建議"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:padding="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/book_style"/>
+            <Button
+                android:id="@+id/exerciseAdvice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="運動規劃"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:padding="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/book_style"/>
+            <Button
+                android:id="@+id/careAdvice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="照護方法"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:padding="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/book_style"/>
+            <Button
+                android:id="@+id/activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="活動量"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:padding="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/book_style"/>
+            <Button
+                android:id="@+id/healthHr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="健康心率"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:padding="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/book_style"/>
+            <Button
+                android:id="@+id/train"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="知能訓練"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:padding="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/book_style"/>
+            <Button
+                android:id="@+id/commonProblem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="常見問題"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:padding="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/book_style"/>
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

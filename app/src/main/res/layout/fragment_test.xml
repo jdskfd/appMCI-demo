@@ -2,16 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e3fdf0"
+    android:background="@color/mainBG"
     android:id="@+id/fragment_test">
     <TextView
         android:id="@+id/bookTitle"
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="今日照護事項"
         android:textSize="15pt"
-        android:background="#a0f3d2"
+        android:background="@drawable/title_style"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         />
     <ListView
         android:layout_width="wrap_content"
@@ -26,6 +29,7 @@
         android:layout_centerInParent="true"
         />
     <Button
+        android:background="@drawable/button_style"
         android:id="@+id/btnAddItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,6 +42,7 @@
         android:layout_marginRight="168dp"
         android:layout_marginBottom="9dp"
         android:onClick="onAddItem"
-        android:text="Add Item" />
+        android:textColor="@color/white"
+        android:text="新增排程" />
 
 </RelativeLayout>
