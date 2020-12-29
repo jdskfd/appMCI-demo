@@ -80,16 +80,16 @@
                 android:padding="15dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/book_style"/>
-            <Button
-                android:id="@+id/activity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="活動量"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:padding="15dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/book_style"/>
+<!--            <Button-->
+<!--                android:id="@+id/activity"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="活動量"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:padding="15dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:background="@drawable/book_style"/>-->
             <Button
                 android:id="@+id/healthHr"
                 android:layout_width="match_parent"
@@ -100,26 +100,26 @@
                 android:padding="15dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/book_style"/>
-            <Button
-                android:id="@+id/train"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="知能訓練"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:padding="15dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/book_style"/>
-            <Button
-                android:id="@+id/commonProblem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="常見問題"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:padding="15dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/book_style"/>
+<!--            <Button-->
+<!--                android:id="@+id/train"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="知能訓練"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:padding="15dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:background="@drawable/book_style"/>-->
+<!--            <Button-->
+<!--                android:id="@+id/commonProblem"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="常見問題"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:padding="15dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:background="@drawable/book_style"/>-->
         </LinearLayout>
     </ScrollView>
 
