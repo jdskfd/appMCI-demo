@@ -71,6 +71,7 @@ public class FragmentTest extends DialogFragment implements View.OnClickListener
     private String hour;
     private String min;
     ArrayList<ItemMapping> items;
+    BubbleSort bubbleSort = new BubbleSort();
 
     @Nullable
     @Override
@@ -78,8 +79,8 @@ public class FragmentTest extends DialogFragment implements View.OnClickListener
         View view = inflater.inflate(R.layout.fragment_test, container, false);
         final MyDBHelper myDBHelper = new MyDBHelper(getContext(),"mciSQLite.db",null,1);
         items = myDBHelper.getScheduleFromDB();
+        bubbleSort.sort(items);
         TodoAdapter itemsAdapter = new TodoAdapter(getActivity(),items);
-//        items = itemsAdapter.getter();
         Button addButton = view.findViewById(R.id.btnAddItem);
         listView = view.findViewById(R.id.list);
         final ArrayList Checkitem = new ArrayList<String>();
@@ -109,6 +110,7 @@ public class FragmentTest extends DialogFragment implements View.OnClickListener
 //                        items.add(newItem);
 //                        itemsAdapter.add(array[0] + array[1]);
                         Checkitem.add(array[0]);
+                        bubbleSort.sort(items);
                         TodoAdapter itemsAdapter = new TodoAdapter(getActivity(),items);
                         listView.setAdapter(itemsAdapter);
                     }

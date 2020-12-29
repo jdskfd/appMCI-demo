@@ -20,6 +20,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.appmci.BubbleSort;
 import com.example.appmci.FragmentHome;
 import com.example.appmci.FragmentTest;
 import com.example.appmci.MyDBHelper;
@@ -194,9 +195,10 @@ public class TodoAdapter extends ArrayAdapter<ItemMapping> {
     }
 
     public void updateList() {
+        BubbleSort bubbleSort =new BubbleSort();
         MyDBHelper myDBHelper = new MyDBHelper(getContext(),"mciSQLite.db",null,1);
         ArrayList<ItemMapping> List = myDBHelper.getScheduleFromDB();
-        Log.e("TAG", "updateList: "+List );
+        bubbleSort.sort(List);
         data.clear();
         data.addAll(List);
         notifyDataSetChanged();

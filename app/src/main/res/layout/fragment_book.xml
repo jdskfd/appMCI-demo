@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="照護百科"
+        android:textColor="@color/white"
         android:textSize="15pt"
         android:background="@drawable/title_style"
         android:layout_marginLeft="5dp"
