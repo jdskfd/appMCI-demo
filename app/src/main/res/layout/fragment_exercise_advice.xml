@@ -1,15 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".book.ExerciseAdvice"
     android:background="@color/mainBG">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/exercise_advice_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/lightWhiteBlue"
+        android:background="@drawable/title_style"
+        android:text="運動規劃" />
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="運動建議" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_below="@+id/exercise_advice_title">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/exercise_advice_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/book_content_style"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/lightGrey"
+                android:text="@string/exercise_start"
+                />
+            <TextView
+                android:id="@+id/exercise_advice_content2"
+                android:layout_below="@+id/exercise_advice_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/book_content_style"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/lightGrey"
+                android:text="@string/exercise_start2"
+                />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/exercise_advice_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/exercise_advice_content2"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/care_advice_item1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/book_item_style"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/lightGrey"
+                    android:text="@string/exercise_advice1"
+                    />
+                <TextView
+                    android:id="@+id/care_advice_item2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/book_item_style"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/lightGrey"
+                    android:text="@string/exercise_advice2"
+                    />
+                <TextView
+                    android:id="@+id/care_advice_item3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/book_item_style"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/lightGrey"
+                    android:text="@string/exercise_advice3"
+                    />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <TextView
+                android:id="@+id/exercise_advice_content3"
+                android:layout_below="@+id/exercise_advice_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/book_content_style"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/lightGrey"
+                android:text="@string/exercise_last"
+                />
 
-</FrameLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

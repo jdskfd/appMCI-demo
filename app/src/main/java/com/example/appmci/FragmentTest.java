@@ -53,7 +53,7 @@ public class FragmentTest extends DialogFragment implements View.OnClickListener
     private ListView listView;
     private View.OnClickListener mClickListener;
     Activity context;
-    private String[] todoArry = new String[]{"服藥", "上肢運動", "下肢運動", "認知運動", "吃飯", "睡前活動"};
+    private String[] todoArry = new String[]{"上肢運動", "下肢運動", "認知運動", "吃飯", "睡前活動"};
     private String[] time = new String[]{"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"};
     private String[] array = new String[2];
 

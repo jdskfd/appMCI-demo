@@ -19,16 +19,14 @@ public class ItemMapping {
     public String getItemType(){
         switch (type){
             case "0":
-                return "服藥";
-            case "1":
                 return "上肢運動";
-            case "2":
+            case "1":
                 return "下肢運動";
-            case "3":
+            case "2":
                 return "認知運動";
-            case "4":
+            case "3":
                 return "吃飯";
-            case "5":
+            case "4":
                 return "睡前活動";
         }
         return type;
