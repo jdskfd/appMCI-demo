@@ -5,7 +5,7 @@
     android:id="@+id/up"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e3fdf0">
+    android:background="@color/mainBG">
     tools:context=".todoFunction.UpExercise">
 
 
@@ -17,8 +17,11 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#a0f3d2"
+            android:background="@drawable/title_style"
             android:text="老人營養餐5大原則"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/lightWhiteBlue"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="12pt"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -30,7 +33,7 @@
 
         <ScrollView
             android:id="@+id/scrollView2"
-            android:layout_width="326dp"
+            android:layout_width="350dp"
             android:layout_height="541dp"
             android:layout_below="@+id/textView3"
             android:layout_alignParentStart="true"
@@ -38,6 +41,7 @@
             android:layout_marginStart="42dp"
             android:layout_marginTop="23dp"
             android:layout_marginEnd="43dp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,76 +54,104 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-
                 <TextView
                     android:id="@+id/title1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:background="@drawable/analysis_board"
+                    android:textColor="@color/lightWhiteBlue"/>
 
                 <TextView
                     android:id="@+id/context1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/analysis_board"
                     android:text="TextView"
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    android:layout_margin="12dp"
+                    android:textColor="@color/lightWhiteBlue"/>
 
                 <TextView
                     android:id="@+id/title2"
+                    android:background="@drawable/analysis_board"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:layout_margin="12dp"
+                    android:textColor="@color/lightWhiteBlue"/>
 
                 <TextView
                     android:id="@+id/context2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/analysis_board"
                     android:text="TextView"
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    android:layout_margin="12dp"
+                    android:textColor="@color/lightWhiteBlue"/>
 
                 <TextView
                     android:id="@+id/title3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/analysis_board"
                     android:text="TextView"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:layout_margin="12dp"
+                    android:textColor="@color/lightWhiteBlue"/>
 
                 <TextView
                     android:id="@+id/context3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/analysis_board"
                     android:text="TextView"
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    android:layout_margin="12dp"
+                    android:textColor="@color/lightWhiteBlue"/>
 
                 <TextView
                     android:id="@+id/title4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/analysis_board"
                     android:text="TextView"
-                    android:textSize="20dp" />
+                    android:layout_margin="12dp"
+                    android:textSize="20dp"
+                    android:textColor="@color/lightWhiteBlue"/>
 
                 <TextView
                     android:id="@+id/context4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/analysis_board"
                     android:text="TextView"
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    android:layout_margin="12dp"
+                    android:textColor="@color/lightWhiteBlue"/>
 
                 <TextView
                     android:id="@+id/title5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/analysis_board"
                     android:text="TextView"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:layout_margin="12dp"
+                    android:textColor="@color/lightWhiteBlue"/>
 
                 <TextView
                     android:id="@+id/context5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/analysis_board"
                     android:text="TextView"
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    android:textColor="@color/lightWhiteBlue"/>
 
 
             </LinearLayout>

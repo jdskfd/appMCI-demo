@@ -11,16 +11,22 @@
         android:layout_marginLeft="20dp"
         android:layout_marginBottom="30dp"
         android:textSize="20sp"
-        android:text="近期臥姿比率狀況"
+        android:text="近期夜間活動量比率"
         android:textColor="@color/lightWhiteBlue">
     </TextView>
+
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/ana_board_line6"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:layout_below="@+id/board6_text"
-        />
+        android:layout_below="@+id/board6_text"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </TextView>
+
+
     <LinearLayout
         android:id="@+id/board6_area1"
         android:layout_width="300dp"
@@ -63,7 +69,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginRight="10dp"
-            android:src="@drawable/down_arrow"
+            android:src="@drawable/up_arrow"
             android:alpha="0.8"
             >
         </ImageView>

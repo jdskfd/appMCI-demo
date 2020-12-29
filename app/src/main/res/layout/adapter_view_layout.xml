@@ -15,8 +15,8 @@
             android:id="@+id/linear1"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/todo_style"
+            android:layout_height="wrap_content"
+            android:background="@drawable/analysis_board"
             android:layout_marginTop="3dp">
 <!--            <ImageView-->
 <!--                android:id="@+id/todoImage"-->
@@ -30,14 +30,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:buttonTint="@color/lightWhiteBlue"
+
                 ></CheckBox>
             <TextView
                 android:id="@+id/item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:textStyle="bold"
+               android:padding="10dp"
                 android:textSize="20sp"
+                android:textColor="@color/lightWhiteBlue"
                 tools:text="項目名稱"/>
             <TextView
                 android:id="@+id/item_time"
@@ -46,14 +49,18 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="50dp"
                 android:textSize="20sp"
+                android:padding="10dp"
+                android:textColor="@color/lightWhiteBlue"
                 tools:text="12"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:textSize="20sp"
-                tools:text="點"
-                android:layout_marginLeft="10dp"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:text="點"
+               android:paddingTop="10dp"
+               android:textSize="20sp"
+               android:textColor="@color/lightWhiteBlue">
+
+           </TextView>
         </LinearLayout>
 <!--        <LinearLayout-->
 <!--            android:layout_width="50dp"-->

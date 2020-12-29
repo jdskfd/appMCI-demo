@@ -1,5 +1,6 @@
 package com.example.appmci.analysis;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +10,12 @@ import androidx.fragment.app.Fragment;
 
 import com.example.appmci.R;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
@@ -57,7 +60,7 @@ public class FragmentBoard1 extends Fragment {
         final LineDataSet set, set1;
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         // greenLine
-        set = new LineDataSet(board11, "");
+        set = new LineDataSet(board11, "活動量達標次數(週)");
         set.setMode(LineDataSet.Mode.LINEAR);//類型為折線
         set.setColor(getResources().getColor(R.color.lightWhiteBlue));//線的顏色
         set.setLineWidth(1.0f);//線寬
@@ -65,7 +68,7 @@ public class FragmentBoard1 extends Fragment {
         set.setDrawValues(false);//不顯示座標點對應Y軸的數字(預設顯示)
         dataSets.add(set);
 
-        set1 = new LineDataSet(board12, "");
+        set1 = new LineDataSet(board12, "活動量達標趨勢");
         set1.setMode(LineDataSet.Mode.LINEAR);//類型為折線
         set1.setColor(getResources().getColor(R.color.mainGreenBlue));//線的顏色
         set1.setLineWidth(1.0f);//線寬
@@ -75,8 +78,15 @@ public class FragmentBoard1 extends Fragment {
 
 
 
+
         //理解爲多條線的集合
         LineData data = new LineData(dataSets);
+
+        XAxis xAxis = lineChart.getXAxis();
+        xAxis.setEnabled(false);
+        lineChart.getAxisLeft().setTextColor(Color.LTGRAY);
+        lineChart.getAxisRight().setTextColor(Color.LTGRAY);
+        lineChart.getLegend().setTextColor(Color.LTGRAY);
 
         lineChart.getDescription().setEnabled(false);
         lineChart.setData(data);//一定要放在最後

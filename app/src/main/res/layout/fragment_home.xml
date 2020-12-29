@@ -19,17 +19,17 @@
             android:orientation="horizontal"
             >
             <ImageView
-                android:background="@drawable/steps_background"
+                android:background="@drawable/analysis_board"
                 android:id="@+id/hintIcon"
                 android:layout_centerHorizontal="true"
                 android:layout_centerInParent="true"
-                android:layout_width="60pt"
+                android:layout_width="55pt"
                 android:layout_height="match_parent"
                 android:src="@drawable/normal"
                 >
             </ImageView>
             <TextView
-                android:background="@drawable/steps_background"
+                android:background="@drawable/analysis_board"
                 android:id="@+id/hintText"
                 android:layout_centerInParent="true"
                 android:gravity="center"
@@ -38,6 +38,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textSize="18sp"
                 >
             </TextView>
         </LinearLayout>
@@ -54,19 +55,19 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:orientation="vertical"
-        android:background="@drawable/steps_background">
+        android:background="@drawable/analysis_board">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="5dp">
+            android:padding="15dp">
 
             <TextView
                 android:id="@+id/f1_text_previousHR"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="20dp"
                 android:text="@string/home_text_previousHR"
                 android:textSize="25sp"
                 android:textColor="@color/white"/>
@@ -132,6 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:layout_marginRight="20dp"
                 android:text="100"
                 android:textSize="20sp"
                 android:textColor="@color/lightGrey"/>
@@ -146,7 +148,7 @@
         android:layout_below="@+id/displayHR"
         android:layout_marginBottom="16dp"
         android:orientation="horizontal"
-        android:background="@drawable/steps_background"
+        android:background="@drawable/analysis_board"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginTop="10dp">
@@ -157,7 +159,9 @@
             android:layout_marginLeft="10dp"
             android:text="今日活動量:"
             android:textSize="22sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:paddingTop="20dp"
+            android:paddingLeft="10dp"/>
 
         <TextView
             android:id="@+id/step"
@@ -166,7 +170,8 @@
             android:layout_marginLeft="5pt"
             android:text="2949"
             android:textSize="22sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:paddingTop="20dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
