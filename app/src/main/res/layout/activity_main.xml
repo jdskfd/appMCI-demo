@@ -23,6 +23,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/mainBG"
             android:id="@+id/toolbar"
+            app:titleTextColor="@color/lightWhiteBlue"
             />
 
         <FrameLayout

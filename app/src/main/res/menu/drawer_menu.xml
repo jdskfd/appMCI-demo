@@ -8,18 +8,18 @@
             android:id="@+id/drawer_profile"
             android:icon="@drawable/ic_baseline_person_24"
             android:title="@string/menu_drawer_profile" />
-        <item
-            android:id="@+id/drawer_settingHW"
-            android:icon="@drawable/ic_baseline_list_alt_24"
-            android:title="@string/menu_drawer_settingHW" />
-        <item
-            android:id="@+id/drawer_bluetooth"
-            android:icon="@drawable/ic_baseline_bluetooth_24"
-            android:title="@string/menu_drawer_bluetooth" />
-        <item
-            android:id="@+id/drawer_language"
-            android:icon="@drawable/ic_baseline_language_24"
-            android:title="@string/menu_drawer_language" />
+<!--        <item-->
+<!--            android:id="@+id/drawer_settingHW"-->
+<!--            android:icon="@drawable/ic_baseline_list_alt_24"-->
+<!--            android:title="@string/menu_drawer_settingHW" />-->
+<!--        <item-->
+<!--            android:id="@+id/drawer_bluetooth"-->
+<!--            android:icon="@drawable/ic_baseline_bluetooth_24"-->
+<!--            android:title="@string/menu_drawer_bluetooth" />-->
+<!--        <item-->
+<!--            android:id="@+id/drawer_language"-->
+<!--            android:icon="@drawable/ic_baseline_language_24"-->
+<!--            android:title="@string/menu_drawer_language" />-->
 
 
     </group>

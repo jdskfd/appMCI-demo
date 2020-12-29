@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         Intent serverServiceIntent = new Intent(this, GetServerDataService.class);
-        startService(serverServiceIntent);
+//        startService(serverServiceIntent);
         startService(new Intent(this, BLEScan.class));
         startService(new Intent(this, MyServiceDB.class));
 
@@ -476,8 +476,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-
-
         Stetho.initializeWithDefaults(this);
 
     }
@@ -498,21 +496,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .beginTransaction()
                         .replace(R.id.fragment_container, new ProfileFragment()).commit();
                 break;
-            case R.id.drawer_settingHW:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_container, new SetHWFragment()).commit();
-                break;
-            case R.id.drawer_bluetooth:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_container, new BluetoothFragment()).commit();
-                break;
-            case R.id.drawer_language:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_container, new LanguageFragment()).commit();
-                break;
+//            case R.id.drawer_settingHW:
+//                getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.fragment_container, new SetHWFragment()).commit();
+//                break;
+//            case R.id.drawer_bluetooth:
+//                getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.fragment_container, new BluetoothFragment()).commit();
+//                break;
+//            case R.id.drawer_language:
+//                getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.fragment_container, new LanguageFragment()).commit();
+//                break;
 
         }
         drawer.closeDrawer(GravityCompat.START);
