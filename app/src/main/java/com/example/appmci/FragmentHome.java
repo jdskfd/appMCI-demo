@@ -47,7 +47,7 @@ public class FragmentHome extends Fragment {
         }
         @Override
         public void onReceive(final Context context, Intent intent) {
-            hr = (intent.getIntExtra("hr",0));
+            hr = (intent.getIntExtra("hr",83));
             step = (intent.getIntExtra("step",0));
             posture = intent.getIntExtra("posture",0);
             rssi = intent.getIntExtra("rssi",0);
@@ -73,7 +73,7 @@ public class FragmentHome extends Fragment {
                         ImageView hintIcon = getActivity().findViewById(R.id.hintIcon);
                         view_hr.setText(textHR);
                         view_step.setText(textStep);
-                        if(rssi < -80){
+                        if(rssi < -90){
                             hintIcon.setImageResource(R.drawable.rssi);
                             viewRecentStatus.setText(R.string.tooFar);
                         }
