@@ -14,63 +14,86 @@
 <!--        />-->
     <LinearLayout
         android:id="@+id/btn_row"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
         <Button
+            android:layout_marginLeft="20dp"
             android:id="@+id/day_btn"
+            android:background="@drawable/button_style"
             android:text="日"
             android:shadowColor="#A8A8A8"
             android:shadowDx="1"
             android:shadowDy="1"
             android:textColor="@color/lightWhiteBlue"
-            android:layout_width="95dp"
-            android:layout_height="50dp"/>
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
         <Button
+            android:layout_marginLeft="10dp"
             android:id="@+id/week_btn"
+            android:background="@drawable/button_style"
             android:text="週"
-            android:layout_width="95dp"
-            android:layout_height="50dp"/>
+            android:textColor="@color/lightWhiteBlue"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
         <Button
+            android:layout_marginLeft="10dp"
             android:id="@+id/month_btn"
+            android:background="@drawable/button_style"
+            android:textColor="@color/lightWhiteBlue"
             android:text="月"
-            android:layout_width="95dp"
-            android:layout_height="50dp"/>
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
         <Button
             android:id="@+id/analysis_report_btn"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/button_style"
+            android:textColor="@color/lightWhiteBlue"
             android:text="智慧分析"
             android:layout_width="95dp"
-            android:layout_height="50dp"/>
+            android:layout_height="30dp"/>
     </LinearLayout>
     <TextView
         android:id="@+id/titleHR"
         android:text="昨日心率圖表"
+        android:background="@drawable/title_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/lightWhiteBlue"
         android:layout_below="@id/btn_row"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         />
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/line_chart"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="150dp"
         android:layout_below="@id/titleHR"
+        android:layout_marginBottom="5dp"
         />
     <TextView
         android:id="@+id/titleSteps"
         android:text="昨日步數圖表"
+        android:background="@drawable/title_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/lightWhiteBlue"
         android:layout_below="@id/line_chart"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         />
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/bar_chart"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="150dp"
             android:layout_below="@+id/titleSteps"
+            android:layout_marginBottom="5dp"
         />
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pie_chart"

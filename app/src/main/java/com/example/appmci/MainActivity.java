@@ -73,9 +73,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //new service db
         MyDBHelper myDBHelper = new MyDBHelper(getApplicationContext(),"mciSQLite.db",null,1);
-
-//        myDBHelper.deleteSchedule("1%","%1800%");
-//
 //        myDBHelper.insertData_ScheduleP01("1-12-0");
 //        myDBHelper.insertData_ScheduleP01("1-18-0");
 //

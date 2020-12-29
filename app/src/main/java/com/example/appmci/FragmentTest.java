@@ -70,15 +70,17 @@ public class FragmentTest extends DialogFragment implements View.OnClickListener
     private String day;
     private String hour;
     private String min;
+    ArrayList<ItemMapping> items;
+    BubbleSort bubbleSort = new BubbleSort();
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_test, container, false);
-
         final MyDBHelper myDBHelper = new MyDBHelper(getContext(),"mciSQLite.db",null,1);
-        final ArrayList<ItemMapping> items = myDBHelper.getScheduleFromDB();
-        Log.e(TAG, "items is this this derla:"+items );
+        items = myDBHelper.getScheduleFromDB();
+        bubbleSort.sort(items);
+        TodoAdapter itemsAdapter = new TodoAdapter(getActivity(),items);
         Button addButton = view.findViewById(R.id.btnAddItem);
         listView = view.findViewById(R.id.list);
         final ArrayList Checkitem = new ArrayList<String>();
@@ -102,11 +104,15 @@ public class FragmentTest extends DialogFragment implements View.OnClickListener
                         String temp = array[0]+"-"+array[1]+"-0";
                         Log.e(TAG, "temp is "+temp);
                         newItem.ItemSplit(temp);
+                        items.add(newItem);
                         myDBHelper.insertData_ScheduleP01(temp);
                         Toast.makeText(getActivity(), "新增成功", Toast.LENGTH_SHORT).show();
 //                        items.add(newItem);
 //                        itemsAdapter.add(array[0] + array[1]);
                         Checkitem.add(array[0]);
+                        bubbleSort.sort(items);
+                        TodoAdapter itemsAdapter = new TodoAdapter(getActivity(),items);
+                        listView.setAdapter(itemsAdapter);
                     }
                 });
                 AlertDialog dialog3 = builder3.create();
@@ -139,7 +145,6 @@ public class FragmentTest extends DialogFragment implements View.OnClickListener
                 dialog.show();
             }
         });
-        TodoAdapter itemsAdapter = new TodoAdapter(getActivity(),items);
         listView.setAdapter(itemsAdapter);
         currentTime();
         setNotifyTime(calendar);
@@ -198,6 +203,9 @@ public class FragmentTest extends DialogFragment implements View.OnClickListener
         AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         //        設定單次提醒
         alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+    }
+    public ArrayList getter(){
+        return items;
     }
     @Override
     public void onClick(View view) {

@@ -37,9 +37,10 @@ public class ItemMapping {
         return type;
     }
     public String getItemTime(){
-
         return time;
-
+    }
+    public String getStatus(){
+        return status;
     }
     public String getItemStatus(){
         if(status == "0"){

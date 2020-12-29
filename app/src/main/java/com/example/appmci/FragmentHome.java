@@ -103,8 +103,7 @@ public class FragmentHome extends Fragment {
 
         Button notifyBtn;
 
-//        notifyBtn = getActivity().findViewById(R.id.btnNotify);
-        notifyBtn = view.findViewById(R.id.btnNotify);
+//        notifyBtn = view.findViewById(R.id.btnNotify);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel("MyNotify","MyNotify", NotificationManager.IMPORTANCE_DEFAULT);
@@ -112,22 +111,22 @@ public class FragmentHome extends Fragment {
             manager.createNotificationChannel(channel);
     }
 
-        notifyBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), "MyNotify");
-                builder.setContentTitle("title");
-                builder.setContentText("text");
-                builder.setTicker("hello");
-//                builder.setWhen(System.currentTimeMillis());
-                builder.setSmallIcon(R.drawable.danger);
-                builder.setAutoCancel(true);
-
-                NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getActivity());
-                managerCompat.notify(1,builder.build());
-            }
-
-        });
+//        notifyBtn.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view) {
+//                NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), "MyNotify");
+//                builder.setContentTitle("title");
+//                builder.setContentText("text");
+//                builder.setTicker("hello");
+////                builder.setWhen(System.currentTimeMillis());
+//                builder.setSmallIcon(R.drawable.danger);
+//                builder.setAutoCancel(true);
+//
+//                NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getActivity());
+//                managerCompat.notify(1,builder.build());
+//            }
+//
+//        });
 
         return view;
     }
