@@ -24,8 +24,8 @@
         android:layout_marginRight="25dp"
         android:layout_marginTop="25dp"
         tools:ignore="DuplicateIds"
-
         android:orientation="vertical">
+
         <ImageView
             android:id="@+id/ana_icon1"
             android:layout_centerHorizontal="true"
@@ -52,7 +52,7 @@
             android:layout_marginTop="15dp"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/up_arrow"
+            android:src="@drawable/down_arrow"
             tools:ignore="DuplicateIds"
             android:alpha="0.7">
         </ImageView>
@@ -129,16 +129,26 @@
                 tools:ignore="DuplicateIds">
             </ImageView>
             <TextView
-
+                android:id="@+id/ana_text3"
                 android:layout_below="@id/ana_icon3"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="25px"
-                android:text="夜間離床走勢"
+                android:text="夜間離步數走勢"
                 android:textColor="@color/lightWhiteBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:ignore="DuplicateIds">
             </TextView>
+            <ImageView
+                android:layout_below="@id/ana_text3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/up_arrow"
+                tools:ignore="DuplicateIds"
+                android:alpha="0.8">
+            </ImageView>
         </RelativeLayout>
 
         <RelativeLayout
@@ -161,6 +171,7 @@
                 >
             </ImageView>
             <TextView
+                android:id="@+id/ana_text4"
                 android:layout_below="@id/ana_icon4"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="25px"
@@ -169,6 +180,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </TextView>
+            <ImageView
+                android:layout_below="@id/ana_text4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/up_arrow"
+                tools:ignore="DuplicateIds"
+                android:alpha="0.8">
+            </ImageView>
         </RelativeLayout>
     </LinearLayout>
 
@@ -180,7 +201,7 @@
         android:layoutAnimation="@anim/fade_in"
         >
         <RelativeLayout
-            android:id="@+id/ana_board3"
+            android:id="@+id/ana_board5"
             android:background="@drawable/analysis_board"
             android:layout_width="150dp"
             android:layout_height="180dp"
@@ -190,8 +211,7 @@
             tools:ignore="DuplicateIds"
             android:orientation="vertical">
             <ImageView
-
-                android:id="@+id/ana_icon3"
+                android:id="@+id/ana_icon5"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:layout_width="70dp"
@@ -200,20 +220,30 @@
                 tools:ignore="DuplicateIds">
             </ImageView>
             <TextView
-
-                android:layout_below="@id/ana_icon3"
+                android:id="@+id/ana_text5"
+                android:layout_below="@id/ana_icon5"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="25px"
-                android:text="夜間離床走勢"
+                android:text="心率起伏狀況"
                 android:textColor="@color/lightWhiteBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:ignore="DuplicateIds">
             </TextView>
+            <ImageView
+                android:layout_below="@id/ana_text5"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/down_arrow"
+                tools:ignore="DuplicateIds"
+                android:alpha="0.7">
+            </ImageView>
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/ana_board4"
+            android:id="@+id/ana_board6"
             android:background="@drawable/analysis_board"
             android:layout_width="150dp"
             android:layout_height="180dp"
@@ -223,7 +253,7 @@
             tools:ignore="DuplicateIds"
             android:orientation="vertical">
             <ImageView
-                android:id="@+id/ana_icon4"
+                android:id="@+id/ana_icon6"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:layout_width="70dp"
@@ -232,17 +262,27 @@
                 >
             </ImageView>
             <TextView
-                android:layout_below="@id/ana_icon4"
+                android:id="@+id/ana_text6"
+                android:layout_below="@id/ana_icon6"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="25px"
-                android:text="離床次數走勢"
+                android:text="臥姿比率走勢"
                 android:textColor="@color/lightWhiteBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </TextView>
+            <ImageView
+                android:layout_below="@id/ana_text6"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/up_arrow"
+                tools:ignore="DuplicateIds"
+                android:alpha="0.8">
+            </ImageView>
         </RelativeLayout>
     </LinearLayout>
-
 
 
 </LinearLayout>

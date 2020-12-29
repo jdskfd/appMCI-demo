@@ -5,10 +5,14 @@ import android.graphics.Paint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.appmci.R;
 import com.github.mikephil.charting.animation.Easing;
@@ -35,6 +39,13 @@ public class FragmentAnalysis extends Fragment {
 
 
     RadarChart radar_report;
+    View btnBoard1;
+    View btnBoard2;
+    View btnBoard3;
+    View btnBoard4;
+    View btnBoard5;
+    View btnBoard6;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,17 +55,17 @@ public class FragmentAnalysis extends Fragment {
 
 
 
-        radar_data.add(new RadarEntry(4));
-        radar_data.add(new RadarEntry(7));
-        radar_data.add(new RadarEntry(8));
-        radar_data.add(new RadarEntry(5));
-        radar_data.add(new RadarEntry(9));
-
-        radar_model.add(new RadarEntry(5));
-        radar_model.add(new RadarEntry(4));
-        radar_model.add(new RadarEntry(9));
-        radar_model.add(new RadarEntry(3));
-        radar_model.add(new RadarEntry(7));
+//        radar_data.add(new RadarEntry(4));
+//        radar_data.add(new RadarEntry(7));
+//        radar_data.add(new RadarEntry(8));
+//        radar_data.add(new RadarEntry(5));
+//        radar_data.add(new RadarEntry(9));
+//
+//        radar_model.add(new RadarEntry(5));
+//        radar_model.add(new RadarEntry(4));
+//        radar_model.add(new RadarEntry(9));
+//        radar_model.add(new RadarEntry(3));
+//        radar_model.add(new RadarEntry(7));
 
 
 //        radar_report = view.findViewById(R.id.analysis_line_chart);
@@ -62,8 +73,143 @@ public class FragmentAnalysis extends Fragment {
 //        draw_radarChart(radar_data,radar_model);
 //        draw_radarChart(radar_model);
 
+        //board1
+        btnBoard1 = (View)view.findViewById(R.id.ana_board1);
+        btnBoard1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                FragmentBoard1 fragmentBoard1 = new FragmentBoard1();
+                if (fragmentBoard1 == null) fragmentBoard1 = new FragmentBoard1();
+
+                if (fragmentBoard1.isAdded()){
+                    fragmentTransaction.show(fragmentBoard1);
+                } else {
+                    fragmentTransaction.add(R.id.fragment_container,fragmentBoard1,"fragment_board");
+
+                }
+                fragmentTransaction.addToBackStack("fragment_analysis");
+                fragmentTransaction.commit();
+            }
+        });
+
+        //board2
+        btnBoard2 = (View)view.findViewById(R.id.ana_board2);
+        btnBoard2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                FragmentBoard2 fragmentBoard2 = new FragmentBoard2();
+                if (fragmentBoard2 == null) fragmentBoard2 = new FragmentBoard2();
+
+                if (fragmentBoard2.isAdded()){
+                    fragmentTransaction.show(fragmentBoard2);
+                } else {
+                    fragmentTransaction.add(R.id.fragment_container,fragmentBoard2,"fragment_board");
+
+                }
+                fragmentTransaction.addToBackStack("fragment_analysis");
+                fragmentTransaction.commit();
+            }
+        });
+
+        //board3
+        btnBoard3 = (View)view.findViewById(R.id.ana_board3);
+        btnBoard3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                FragmentBoard3 fragmentBoard3 = new FragmentBoard3();
+                if (fragmentBoard3 == null) fragmentBoard3 = new FragmentBoard3();
+
+                if (fragmentBoard3.isAdded()){
+                    fragmentTransaction.show(fragmentBoard3);
+                } else {
+                    fragmentTransaction.add(R.id.fragment_container,fragmentBoard3,"fragment_board");
+
+                }
+                fragmentTransaction.addToBackStack("fragment_analysis");
+                fragmentTransaction.commit();
+            }
+        });
+
+        //board4
+        btnBoard4 = (View)view.findViewById(R.id.ana_board4);
+        btnBoard4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                FragmentBoard4 fragmentBoard4 = new FragmentBoard4();
+                if (fragmentBoard4 == null) fragmentBoard4 = new FragmentBoard4();
+
+                if (fragmentBoard4.isAdded()){
+                    fragmentTransaction.show(fragmentBoard4);
+                } else {
+                    fragmentTransaction.add(R.id.fragment_container,fragmentBoard4,"fragment_board");
+
+                }
+                fragmentTransaction.addToBackStack("fragment_analysis");
+                fragmentTransaction.commit();
+            }
+        });
+
+        //board5
+        btnBoard5 = (View)view.findViewById(R.id.ana_board5);
+        btnBoard5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                FragmentBoard5 fragmentBoard5 = new FragmentBoard5();
+                if (fragmentBoard5 == null) fragmentBoard5 = new FragmentBoard5();
+
+                if (fragmentBoard5.isAdded()){
+                    fragmentTransaction.show(fragmentBoard5);
+                } else {
+                    fragmentTransaction.add(R.id.fragment_container,fragmentBoard5,"fragment_board");
+
+                }
+                fragmentTransaction.addToBackStack("fragment_analysis");
+                fragmentTransaction.commit();
+            }
+        });
+
+        //board6
+        btnBoard6 = (View)view.findViewById(R.id.ana_board6);
+        btnBoard6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                FragmentBoard6 fragmentBoard6 = new FragmentBoard6();
+                if (fragmentBoard6 == null) fragmentBoard6 = new FragmentBoard6();
+
+                if (fragmentBoard6.isAdded()){
+                    fragmentTransaction.show(fragmentBoard6);
+                } else {
+                    fragmentTransaction.add(R.id.fragment_container,fragmentBoard6,"fragment_board");
+
+                }
+                fragmentTransaction.addToBackStack("fragment_analysis");
+                fragmentTransaction.commit();
+            }
+        });
+
 
         return view;
+    }
+    @Override
+    public void onPause(){
+        FragmentManager fragmentManager = getFragmentManager();
+        int count = getFragmentManager().getBackStackEntryCount();
+        for (int i = 0 ; i < count ; i++){
+            fragmentManager.popBackStack();
+        }
+        super.onPause();
     }
 
     private void draw_radarChart(final ArrayList<RadarEntry> data1,final ArrayList<RadarEntry> data2) {

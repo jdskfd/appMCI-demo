@@ -575,7 +575,6 @@ public class FragmentHealth extends Fragment {
                 fragmentTransaction.commit();
             }
         });
-
         return view;
     }
 
@@ -600,6 +599,7 @@ public class FragmentHealth extends Fragment {
         set.setDrawValues(false);//不顯示座標點對應Y軸的數字(預設顯示)
         //理解爲多條線的集合
         LineData data = new LineData(set);
+        hr_report.getDescription().setEnabled(false);
         hr_report.setData(data);//一定要放在最後
         hr_report.animateY(2000);
         hr_report.invalidate();//繪製圖表
@@ -612,6 +612,8 @@ public class FragmentHealth extends Fragment {
 //        barDataSet.setValueTextColor(Color.BLACK);
 //        barDataSet.setValueTextSize(5f);
         BarData data = new BarData(barDataSet);
+
+        step_report.getDescription().setEnabled(false);
         step_report.setFitBars(true);
         step_report.setData(data);
         step_report.getDescription().setText("Bar");
@@ -626,6 +628,8 @@ public class FragmentHealth extends Fragment {
 //        pieDataSet.setValueTextColor(Color.BLACK);
 //        pieDataSet.setValueTextSize(15f);
         PieData data = new PieData(pieDataSet);
+
+        sleep_report.getDescription().setEnabled(false);
         sleep_report.setData(data);
         sleep_report.getDescription().setEnabled(false);
         sleep_report.setCenterText("");
