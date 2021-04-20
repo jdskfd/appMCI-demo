@@ -17,22 +17,16 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     private NotificationManager notificationManager;
     private Notification testNotification;
-
     private final static int NOTIFICATION_ID=0;
-
     @Override
     public void onReceive(Context context, Intent intent) {
-
         Intent notifyIntent=new Intent(context,MainActivity.class);
         PendingIntent pendingIntent=PendingIntent.getActivity(context,0,notifyIntent,0);
-
         broadcastNotify(context, pendingIntent);
     }
-
     private void broadcastNotify(Context context, PendingIntent pendingIntent) {
         notificationManager=
                 (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-
         testNotification = new Notification.Builder(context)
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.drawable.danger)
@@ -41,8 +35,6 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setContentIntent(pendingIntent)
                 .setVibrate(new long[]{0,100,200,300,400,500})
                 .build();
-
-        //        發送通知
         notificationManager.notify(NOTIFICATION_ID, testNotification);
     }
 }

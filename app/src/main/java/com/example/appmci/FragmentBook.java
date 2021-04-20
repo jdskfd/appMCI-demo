@@ -46,13 +46,6 @@ public class FragmentBook extends Fragment {
         Button healthHr = view.findViewById(R.id.healthHr);
 //        Button train = view.findViewById(R.id.train);
 //        Button commonProblem = view.findViewById(R.id.commonProblem);
-
-
-
-
-
-
-
         mciIntro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -153,26 +146,6 @@ public class FragmentBook extends Fragment {
                 fragmentTransaction.commit();
             }
         });
-//        activity.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                final FragmentManager fragmentManager = getFragmentManager();
-//                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                final FragmentBook fragmentBook = (FragmentBook)
-//                        fragmentManager.findFragmentByTag("fragmentBook");
-//                if (fragmentBook != null && !fragmentBook.isHidden()) {
-//                    fragmentTransaction.hide(fragmentBook);
-//                    fragmentTransaction.addToBackStack("fragmentBook");
-//                }
-//                final ActivityBook activityBook = new ActivityBook();
-//                if (activityBook.isAdded()) {
-//                    fragmentTransaction.show(activityBook);
-//                } else {
-//                    fragmentTransaction.add(R.id.fragment_container, activityBook, "activityBook");
-//                }
-//                fragmentTransaction.commit();
-//            }
-//        });
         healthHr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -193,48 +166,6 @@ public class FragmentBook extends Fragment {
                 fragmentTransaction.commit();
             }
         });
-//       train.setOnClickListener(new View.OnClickListener() {
-//           @Override
-//           public void onClick(View view) {
-//               final FragmentManager fragmentManager = getFragmentManager();
-//               final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//               final FragmentBook fragmentBook = (FragmentBook)
-//                       fragmentManager.findFragmentByTag("fragmentBook");
-//               if (fragmentBook != null && !fragmentBook.isHidden()) {
-//                   fragmentTransaction.hide(fragmentBook);
-//                   fragmentTransaction.addToBackStack("fragmentBook");
-//               }
-//               final Train train = new Train();
-//               if (train.isAdded()) {
-//                   fragmentTransaction.show(train);
-//               } else {
-//                   fragmentTransaction.add(R.id.fragment_container, train, "train");
-//               }
-//               fragmentTransaction.commit();
-//           }
-//       });
-//        commonProblem.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                final FragmentManager fragmentManager = getFragmentManager();
-//                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                final FragmentBook fragmentBook = (FragmentBook)
-//                        fragmentManager.findFragmentByTag("fragmentBook");
-//                if (fragmentBook != null && !fragmentBook.isHidden()) {
-//                    fragmentTransaction.hide(fragmentBook);
-//                    fragmentTransaction.addToBackStack("fragmentBook");
-//                }
-//                final CommonProblem commonProblem = new CommonProblem();
-//                if (commonProblem.isAdded()) {
-//                    fragmentTransaction.show(commonProblem);
-//                } else {
-//                    fragmentTransaction.add(R.id.fragment_container, commonProblem, "commonProblem");
-//                }
-//                fragmentTransaction.commit();
-//            }
-//        });
-
-
         return view;
     }
     @Override

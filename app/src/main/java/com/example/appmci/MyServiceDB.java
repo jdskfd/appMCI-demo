@@ -30,19 +30,14 @@ public class MyServiceDB extends Service {
                 MyDBHelper myDBHelper = new MyDBHelper(getApplicationContext(),"mciSQLite.db",null,1);
                 boolean isInfoAvailable = myDBHelper.isAnyInfoAvailable(getApplicationContext());
 //                Toast.makeText(getApplicationContext(), String.valueOf(isInfoAvailable), Toast.LENGTH_LONG).show();
-
 //                ArrayList<Entry> data;
 //                data = myDBHelper.doAryList();
 //                Log.e(TAG, "data_in_service: "+ data );
-
-
 //                NotificationCompat notification ;
 //                notification = new NotificationCompat.Builder(this);
 //                notification.setAutoCancel(true);
-//
 //                TimeAlarmActivity timeAlarmActivity = new TimeAlarmActivity();
 //        timeAlarmActivity.setAlarm();
-
                 mHandler.postDelayed(mRunnable, 10 * 1000);
             }
         };

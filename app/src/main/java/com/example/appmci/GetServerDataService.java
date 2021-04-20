@@ -16,11 +16,9 @@ public class GetServerDataService extends IntentService {
     public GetServerDataService() {
         super("GetServerDataService");
     }
-
     @Override
     protected void onHandleIntent(Intent intent) {
         CheckConnection();
-
     }
     public void CheckConnection(){
         try {
@@ -29,7 +27,6 @@ public class GetServerDataService extends IntentService {
             }
             if(ConnectionClass.con != null){
                 Statement stmt = ConnectionClass.con.createStatement();
-
                 //get week report data
                 String sql="select * from WeekReportP01";
                 ResultSet resultSet = stmt.executeQuery(sql);
@@ -41,7 +38,6 @@ public class GetServerDataService extends IntentService {
                     Log.e("week",resultSet.getString("week"));
                 }
                 Log.e("ASK","----------------------------");
-
                 //get Target steps data
                 sql="select * from TargetStepsP01";
                 resultSet = stmt.executeQuery(sql);
@@ -50,19 +46,12 @@ public class GetServerDataService extends IntentService {
                     Log.e("week_avg",resultSet.getString("week_avg"));
                 }
                 Log.e("ASK","----------------------------");
-
-
-
                 Log.e(TAG,"Query executed successfully");
-//                Toast.makeText(getContext(), "Query executed successfully", Toast.LENGTH_LONG).show();
             }else {
                 Log.e(TAG,"Connection to server failed");
-//                Toast.makeText(getContext(), "Connection to server failed ", Toast.LENGTH_LONG).show();
             }
         } catch (Exception e) {
-//            Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
             Log.e(TAG, e.getMessage());
         }
     }
-
 }

@@ -19,21 +19,16 @@ public class UpExercise extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_up_exercise, container, false);
         webView = view.findViewById(R.id.up_webview);
         webView.getSettings().setJavaScriptEnabled(true);
         final Activity activity = getActivity();
         webView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) {
-                // Activities and WebViews measure progress with different scales.
-                // The progress meter will automatically disappear when we reach 100%
                 activity.setProgress(progress * 1000);
             }
         });
         webView.setWebViewClient(new WebViewClient());
-
         webView.loadUrl("https://www.youtube.com/watch?v=iCrofkSsMCQ");
         webView.setWebViewClient(new WebViewClient());
 

@@ -10,7 +10,6 @@ public class BubbleSort {
     public static void sort(ArrayList<ItemMapping> items) {
         int n = items.size();
         ItemMapping itemMapping = items.get(0);
-
         for(int i=0; i < n; i++){
             for(int j=1; j < (n-i); j++){
                 int time1 = Integer.valueOf(items.get(j-1).getItemTime());

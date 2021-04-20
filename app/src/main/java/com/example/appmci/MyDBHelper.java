@@ -27,7 +27,6 @@ public class MyDBHelper extends SQLiteOpenHelper{
 
     public MyDBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
         m_ctx = context;
 
     }
@@ -74,9 +73,6 @@ public class MyDBHelper extends SQLiteOpenHelper{
     private String getCreateTable_ScheduleP01 = "CREATE TABLE ScheduleP01 ( _id INTEGER PRIMARY KEY , " +
             "type String )";// type = x + y + z ; x = 項目的index; y = 時間; z = status(0 or 1);
 
-
-
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(createTable_InstantData);
@@ -92,10 +88,8 @@ public class MyDBHelper extends SQLiteOpenHelper{
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 
-    //insert data
     public boolean insertData_ScheduleP01 (String type)
     {
         SQLiteDatabase db=this.getWritableDatabase();
@@ -150,18 +144,14 @@ public class MyDBHelper extends SQLiteOpenHelper{
         else
             return true;
     }
-
-    //new
     public boolean insertData_DataSteps (String p_id, String date, String time, Integer steps)
     {
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
-
         contentValues.put("p_id",p_id);
         contentValues.put("date",date);
         contentValues.put("time",time);
         contentValues.put("steps",steps);
-
         long result=db.insert("DataSteps",null,contentValues);
         if(result==-1)
             return false;
@@ -172,7 +162,6 @@ public class MyDBHelper extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         String deleteSchedule = "DELETE FROM ScheduleP01 WHERE type LIKE "+"'"+remove_type+"'"+" AND type LIKE "+"'"+remove_time+"'" ;
         db.execSQL(deleteSchedule);
-
 //        db.delete("ScheduleP01", "type" + "=" + remove_type, null);
         db.close();
     }
@@ -228,7 +217,6 @@ public class MyDBHelper extends SQLiteOpenHelper{
         return instant_posture_value;
     }
 
-    //get table's total data number
     public int getNum() {
         Cursor c = getWritableDatabase().rawQuery(
                 "select * from "+"StepsTotalP01", null);
@@ -236,7 +224,6 @@ public class MyDBHelper extends SQLiteOpenHelper{
         return num;
     }
 
-    //aryList hr_day (line)
     public ArrayList aryList_hr_day() {
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery(" SELECT * FROM " + "DataHR", null);
@@ -254,7 +241,6 @@ public class MyDBHelper extends SQLiteOpenHelper{
         return aryList_data_hr_day;
     }
 
-    //aryList steps_day (bar)
     public ArrayList aryList_steps_day() {
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery(" SELECT * FROM " + "DataSteps", null);
@@ -326,7 +312,6 @@ public class MyDBHelper extends SQLiteOpenHelper{
         return aryList_data_hr_week;
     }
 
-    //aryList steps_week (bar)
     public ArrayList aryList_steps_month() {
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery(" SELECT * FROM " + "StepsTotalP01", null);
@@ -343,7 +328,6 @@ public class MyDBHelper extends SQLiteOpenHelper{
         Log.e(TAG, "aryList_steps_month: "+ aryList_data_stepsMonth );
         return aryList_data_stepsMonth;
     }
-
     //aryList Schedule
     public ArrayList getScheduleFromDB() {
         SQLiteDatabase db = getReadableDatabase();
@@ -359,8 +343,6 @@ public class MyDBHelper extends SQLiteOpenHelper{
         } while (c.moveToNext());
         return schedule;
     }
-
-
     public static boolean isAnyInfoAvailable(Context ctx){
         boolean result = false;
         MyDBHelper dbh = null;

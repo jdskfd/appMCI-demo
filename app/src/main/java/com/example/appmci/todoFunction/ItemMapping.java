@@ -1,6 +1,5 @@
 package com.example.appmci.todoFunction;
 import android.util.Log;
-
 public class ItemMapping {
     private static final String TAG = "itemMapping";
     private String[] itemContent;
@@ -50,9 +49,6 @@ public class ItemMapping {
         }
     }
     public String getItemContent(){
-
         return type+"-"+time+"-"+status;
-
     }
-
 }

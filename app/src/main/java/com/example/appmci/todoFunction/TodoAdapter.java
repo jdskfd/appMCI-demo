@@ -37,8 +37,6 @@ public class TodoAdapter extends ArrayAdapter<ItemMapping> {
         super(context, 0, item);
         data = item;
     }
-
-
     @SuppressLint("ResourceType")
     @Override
     public View getView(int position, View convertView, final ViewGroup parent) {
@@ -46,27 +44,19 @@ public class TodoAdapter extends ArrayAdapter<ItemMapping> {
         ViewHolder viewHolder;
         final ItemMapping currentName = getItem(position);
         final MyDBHelper myDBHelper = new MyDBHelper(getContext(),"mciSQLite.db",null,1);
-        //notification
-//        TimeAlarmActivity timeAlarmActivity = new TimeAlarmActivity();
-//        timeAlarmActivity.setAlarm();
 
-//        listItemView可能會是空的，例如App剛啟動時，沒有預先儲存的view可使用
         if(convertView == null){
             view = LayoutInflater.from(getContext()).inflate(R.layout.adapter_view_layout, parent, false);
             viewHolder = new ViewHolder();
-//            viewHolder.image = (ImageView) view.findViewById(R.id.todoImage);
             viewHolder.name = (TextView) view.findViewById(R.id.item_name);
             viewHolder.time = (TextView) view.findViewById(R.id.item_time);
             viewHolder.checkBox =(CheckBox)view.findViewById(R.id.checkbox);
-//            viewHolder.delete = view.findViewById(R.id.delete_button);
             view.setTag(viewHolder);
         }
         else{
             view = convertView;
             viewHolder = (ViewHolder) view.getTag();
         }
-
-
         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.linear1);
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -182,11 +172,8 @@ public class TodoAdapter extends ArrayAdapter<ItemMapping> {
         }
         viewHolder.name.setText(currentName.getItemType());
         viewHolder.time.setText(currentName.getItemTime());
-
-
         return view;
     }
-
     public void updateList() {
         BubbleSort bubbleSort =new BubbleSort();
         MyDBHelper myDBHelper = new MyDBHelper(getContext(),"mciSQLite.db",null,1);
@@ -196,8 +183,6 @@ public class TodoAdapter extends ArrayAdapter<ItemMapping> {
         data.addAll(List);
         notifyDataSetChanged();
     }
-
-
     class ViewHolder{
         ImageView image;
         TextView name;

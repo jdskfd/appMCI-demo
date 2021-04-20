@@ -45,7 +45,6 @@ import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class FragmentTest extends DialogFragment implements View.OnClickListener {
 //    private ArrayAdapter<String> itemsAdapter;
-
     private EditText etNewItem;
     private String itemText;
     private String string = "上肢";
@@ -57,16 +56,10 @@ public class FragmentTest extends DialogFragment implements View.OnClickListener
     private String[] time = new String[]{"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"};
     private String[] array = new String[2];
 
-
-    //    提供日、時、分三種時間輸入
     private int edtDay,edtHour,edtMin;
-    //    存取目前時間
     private long currentSystemTime;
-    //    存取設定時間
     private long setTime;
-    //    建立Calendar 物件
     private Calendar calendar;
-    //    取得日、時、分三種時間輸入
     private String day;
     private String hour;
     private String min;
@@ -84,9 +77,6 @@ public class FragmentTest extends DialogFragment implements View.OnClickListener
         Button addButton = view.findViewById(R.id.btnAddItem);
         listView = view.findViewById(R.id.list);
         final ArrayList Checkitem = new ArrayList<String>();
-
-        // + 排序功能
-
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,7 +114,7 @@ public class FragmentTest extends DialogFragment implements View.OnClickListener
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         array[1] = time[which];
-                        dialog.dismiss();// 隨便點選一個item消失對話方塊，不用點選確認取消
+                        dialog.dismiss();
                     }
                 });
                 AlertDialog dialog2 = builder2.create();
@@ -138,7 +128,7 @@ public class FragmentTest extends DialogFragment implements View.OnClickListener
 //                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                         Integer integer = which;
                         array[0] = integer.toString();
-                        dialog.dismiss();// 隨便點選一個item消失對話方塊，不用點選確認取消
+                        dialog.dismiss();
                     }
                 });
                 AlertDialog dialog = builder.create();
@@ -154,54 +144,30 @@ public class FragmentTest extends DialogFragment implements View.OnClickListener
     }
 
     private void currentTime() {
-        //        calendar實例化，取得預設時間、預設時區
         calendar = Calendar.getInstance();
-        //        設定系統目前時間、目前時區(GMT+8)
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.setTimeZone(TimeZone.getTimeZone("GMT+8"));
-        //        獲得系統目前時間
         currentSystemTime=System.currentTimeMillis();
     }
-    //        使用者輸入情況判斷
-//    private boolean isEmptyText(){
-//        day = edtDay.getText().toString();
-//        hour = edtHour.getText().toString();
-//        min = edtMin.getText().toString();
-//        if(day.isEmpty()|| hour.isEmpty()|| min.isEmpty()){
-//            return true;
-//        }
-//        else {
-//            return false;
-//        }
-//    }
 
     private void setNotifyTime(Calendar calendar) {
-        //set 通知時間
         calendar.set(Calendar.DAY_OF_MONTH,26);
         calendar.set(Calendar.HOUR_OF_DAY, 21);
         calendar.set(Calendar.MINUTE, 34);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
-        //        獲得定時時間
         setTime = calendar.getTimeInMillis();
 
-        //        若定時時間(日、時、分)比目前小自動設定為下個月的時間(日、時、分)
         if (currentSystemTime > setTime) {
-            //            增加一個月
             calendar.add(Calendar.MONTH, 1);
-            //        重新獲得定時時間
             setTime = calendar.getTimeInMillis();
         }
     }
 
-    //   設定alarm
     private void setAlarm() {
         Intent intent = new Intent(getActivity(), AlarmReceiver.class);
-        //        PendingIntent.getBroadcast調用廣播
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, 0);
-        //        獲得AlarmManager物件
         AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        //        設定單次提醒
         alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
     }
     public ArrayList getter(){

@@ -8,10 +8,10 @@ import java.sql.DriverManager;
 
 public class ConnectionClass {
 
-    String ip = "163.25.101.85";
+    String ip = "0.0.0.0";
     String user = "mci";
     String password = "12345678";
-    String db = "mci";
+    String db = "db";
     public static Connection con;
 
     public void setConnection()

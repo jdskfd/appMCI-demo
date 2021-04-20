@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">失智長輩穿戴關懷系統</string>
+    <string name="app_name">appMCI</string>
 
     <!--homeFragment-->
     <string name="high_hr">心率偏高</string>
